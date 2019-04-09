@@ -1,0 +1,87 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.dropdown-menu.dropdown-menu-right.logout.show {
+    border: 1px solid #edf5ff;
+    /* color: white; */
+    background-color: #549bfb;
+}
+
+ol.carousel-indicators.icon li {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: transparent;
+    position: relative;
+}
+
+ol.carousel-indicators.icon li.active:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    color: white;
+    left: 50%;
+    margin-left:-3px;
+    margin-top: -3px;
+}
+
+.contentmenu a span {
+    color: #549cfc;
+}
+
+a.navbar-brand.travel {
+    color: white;
+}
+
+.col-sm-6.text-right.iconright i {
+    color: #549cfc;
+    margin-right: 10px;
+}
+
+i.fas.fa-search {
+    color: white;
+    margin-top: 13px;
+    font-size: 16px;
+}
+
+a.navbar-brand.travel {
+    margin-right: 163px;
+}
+
+.contentmenu ul li a {
+    color: white;
+    display: block;
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.col-sm-12.contentmenu {
+    font-size: 18px;
+}
+
+
+.col-sm-6.iconleft {
+    font-size: 18px;
+    color: #e2e2e2;
+}
+
+.row.icon {
+    padding-top: 9px;
+    color: white;
+}
+
+.menu {
+    background-color: #28282857;
+    height: 145px;
+    position: fixed;
+    width: 100%;
+    z-index:3;
+}

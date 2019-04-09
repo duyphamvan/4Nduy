@@ -1,0 +1,31 @@
+*{
+
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+.container-fluid.loginview {
+    width: 100%;
+    height: 100%;
+}
+.login100-form, .register100-form  {
+    width: 100%;
+    min-height: 100vh;
+    display: block;
+    background-color: #f7f7f7;
+    padding: 173px 55px 55px 55px;
+}
+.register100-form{
+    padding-top: 100px;
+}
+.login100-form-title{
+    width: 100%;
+    display: block;
+    font-size: 30px;
+    color: #333333;
+    line-height: 1.2;
+    text-align: center;
+}
