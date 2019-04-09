@@ -3,9 +3,12 @@
     padding: 0px;
 }
 
+.col-sm-6.text-right.iconright ul li a span {
+    color: #f3f4f5;
+}
+
 .dropdown-menu.dropdown-menu-right.logout.show {
     border: 1px solid #edf5ff;
-    /* color: white; */
     background-color: #549bfb;
 }
 
@@ -71,6 +74,10 @@ a.navbar-brand.travel {
 .col-sm-6.iconleft {
     font-size: 18px;
     color: #e2e2e2;
+}
+
+.col-sm-6.iconleft.pl-0 ul li a {
+    color: white;
 }
 
 .row.icon {
