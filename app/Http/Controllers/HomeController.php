@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CategoryHouses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -25,8 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.viewhome');
+        $categories = CategoryHouses::all();
+        return view('home.viewhome', compact('categories'));
     }
+
 
     public function showChangePasswordForm()
     {
@@ -52,6 +55,35 @@ class HomeController extends Controller
         $user->password = bcrypt($request->get('new-password'));
         $user->save();
         return redirect()->route('viewhome')->with("success", "Password changed successfully !");
+    }
+
+//    public function showPageGuest()
+//
+//    {
+//
+//        if (!$this->userCan('view-home.viewhome')) {
+//
+//            abort('403', __('Bạn không có quyền thực hiện thao tác này'));
+//
+//        }
+//
+//        return view("home.viewhome");
+//
+//    }
+
+
+    public function showPageAdmin()
+
+    {
+
+        if (!$this->userCan('view-admin.admin')) {
+
+            abort('403', __('Bạn không có quyền thực hiện thao tác này'));
+
+        }
+
+        return view("admin.admin");
+
     }
 }
 

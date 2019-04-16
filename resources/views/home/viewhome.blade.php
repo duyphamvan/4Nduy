@@ -1,8 +1,9 @@
 @extends('home.index')
 @section('content')
     @include('home.nav')
-    @yield('content')
     @include('home.slides')
+    @include('home.houses', ['categories'=>$categories])
+
 {{--    <div class="container">--}}
 {{--        <div class="col-sm-12">--}}
 {{--            <a href="{{route('profile')}}">Profile</a>--}}
