@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\CategoryHouses;
+use App\Category;
+use App\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -10,12 +11,13 @@ use Illuminate\Support\Facades\Storage;
 class CategoryHousesController extends Controller
 {
     public function index(){
-        $categories = CategoryHouses::all();
-        return view('categories.list', compact('categories'));
+        $houses = House::all();
+        $categories = Category::all();
+        return view('categories.list', compact('categories', 'houses'));
     }
 
     public function display(){
-            $categories = CategoryHouses::all();
+            $categories = Category::all();
             return view('home.houses', ['categories'=>$categories]);
         }
 
@@ -24,7 +26,7 @@ class CategoryHousesController extends Controller
     }
 
     public function store(Request $request){
-        $category = new CategoryHouses();
+        $category = new Category();
         $category->name     = $request->input('name');
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -38,12 +40,12 @@ class CategoryHousesController extends Controller
     }
 
     public function edit($id){
-        $category = CategoryHouses::findOrFail($id);
+        $category = Category::findOrFail($id);
         return view('categories.edit', compact('category'));
     }
 
     public function update(Request $request, $id){
-        $category = CategoryHouses::findOrFail($id);
+        $category = Category::findOrFail($id);
         $category->name     = $request->input('name');
 
         if($request->hasFile('image')){
@@ -63,7 +65,7 @@ class CategoryHousesController extends Controller
 
     public function destroy($id)
     {
-        $category = CategoryHouses::where('id',$id)->first();
+        $category = Category::where('id',$id)->first();
 //        $category->blogs()->delete();
         $image = $category->image;
         if($image ){

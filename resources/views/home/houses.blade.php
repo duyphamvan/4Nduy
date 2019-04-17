@@ -1,38 +1,5 @@
-{{--    <div data-ats="44" class="js-ds-layout-events-bh_promotions">--}}
-{{--        <h2 class="d-bh-promotion--block-title">Dù bạn đang tìm chỗ nghỉ nào chăng nữa, chúng tôi đều có...</h2>--}}
-{{--        <div role="region" aria-label="Property types" class="bui-carousel bui-carousel--small bui-u-bleed@small" data-bui-component="Carousel">--}}
-{{--            <ul class="bui-carousel__inner" data-bui-ref="carousel-container">--}}
-{{--                @if(count($categories) == 0)--}}
-{{--                    <tr>--}}
-{{--                        <td colspan="4">No data</td>--}}
-{{--                    </tr>--}}
-{{--                @else--}}
-{{--                    @foreach($categories as $key => $category)--}}
-{{--                        <li class="bui-carousel__item" data-bui-ref="carousel-item">--}}
-{{--                            <div class="bui-card bui-card--media bui-card--transparent">--}}
-{{--                                <div class="bui-card__image-container d-bh-promotion--image-container" onclick="window.open('/apartments/index.vi.html?aid=376447;label=bookings-naam-AZsrzONxiE5g4NMW6yRqbwS267778332220%3Apl%3Ata%3Ap1%3Ap22%2C308%2C000%3Aac%3Aap1t1%3Aneg%3Afi%3Atiaud-294889293253%3Akwd-65526620%3Alp1028580%3Ali%3Adec%3Adm;sid=5ce92d47024954a0b1b8a5fa3161662d;from_booking_home_promotion=1&amp;')">--}}
-{{--                                    <img class="bui-card__image" src="{{asset("storage/$category->image")}}">--}}
-{{--                                </div>--}}
-{{--                                <div class="bui-card__content">--}}
-{{--                                    <a href="#" target="_blank" class="bui-card__title d-bh-promotion--theme-title">{{$category->name}}</a>--}}
-{{--                                    <p class="bui-card__subtitle">742,046 căn hộ</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
-{{--                    @endforeach--}}
-{{--                @endif--}}
-{{--            </ul>--}}
-{{--            <div class="bui-carousel__nav">--}}
-{{--                <button type="button" class="bui-carousel__button bui-is-visible bui-is-clickable" data-bui-ref="carousel-prev" aria-label="Previous content">--}}
-{{--                    <svg class="bk-icon -iconset-navarrow_left bui-carousel__prev" height="32" role="presentation" width="32" viewBox="0 0 128 128"><path d="M73.7 96a4 4 0 0 1-2.9-1.2L40 64l30.8-30.8a4 4 0 0 1 5.7 5.6L51.3 64l25.2 25.2a4 4 0 0 1-2.8 6.8z"></path></svg>--}}
-{{--                </button>--}}
-{{--                <button type="button" class="bui-carousel__button bui-is-visible bui-is-clickable" data-bui-ref="carousel-next" aria-label="Next content">--}}
-{{--                    <svg class="bk-icon -iconset-navarrow_right bui-carousel__next" height="32" role="presentation" width="32" viewBox="0 0 128 128"><path d="M54.3 96a4 4 0 0 1-2.8-6.8L76.7 64 51.5 38.8a4 4 0 0 1 5.7-5.6L88 64 57.2 94.8a4 4 0 0 1-2.9 1.2z"></path></svg>--}}
-{{--                </button>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-        <!doctype html>
+
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,7 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+{{--    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>--}}
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
     <style>
@@ -60,9 +27,10 @@
         .MultiCarousel .MultiCarousel-inner .item.element {
             float: left;
             width:250px ;
+            cursor: pointer;
         }
 
-        .MultiCarousel .MultiCarousel-inner .item > div {
+        .MultiCarousel .MultiCarousel-inner .item .link > div {
             text-align: center;
             /*padding: 10px;*/
             margin: 10px;
@@ -70,10 +38,10 @@
             color: #666;
             height: 250px;
         }
-        .MultiCarousel .MultiCarousel-inner .item .lead {
+        .MultiCarousel .MultiCarousel-inner  .item .link .lead {
             font-size: 14px;
         }
-         .MultiCarousel .MultiCarousel-inner .item .one {
+         .MultiCarousel .MultiCarousel-inner .item .link .one {
              width: 100%;
              height: 175px;
         }
@@ -111,12 +79,13 @@
             <div class="MultiCarousel-inner">
                 @foreach($categories as $key => $category)
                     <div class="item element">
-                        <div class="pad15">
-                            <img class="img-fluid one" src="{{asset("storage/$category->image")}}" >
-                            <p class="lead">{{$category->name}}</p>
-                            <p>50% off</p>
-                        </div>
-
+                        <a href="{{route('filter', $category->id)}}" class="link">
+                            <div class="pad15">
+                                <img class="img-fluid one" src="{{asset("storage/$category->image")}}" >
+                                <p class="lead">{{$category->name}}</p>
+                                <p>50% off</p>
+                            </div>
+                        </a>
                     </div>
                 @endforeach
             </div>

@@ -4,6 +4,39 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.card-body.detail {
+    width: 400px;
+    height: 420px;
+    border: 5px solid #13060647;
+}
+
+.card-group.contenthouse {
+    margin-top: -150px;
+}
+
+small.price.text-muted {
+    color: #32a1e2!important;
+}
+
+
+
+a.houselist {
+    text-decoration: none;
+    color: #124a79;
+    font-size: 14px;
+    /* background-color: #44444438; */
+}
+
+.card.house img.card-img-top.img-fluid {
+    height: 250px;
+}
+
+img.card-img-top.img-fluid {}
+
+.card.house {
+    height: 420px;
+}
+
 .col-sm-6.text-right.iconright ul li a span {
     color: #f3f4f5;
 }

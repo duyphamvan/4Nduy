@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\CategoryHouses;
+use App\Category;
+use App\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -14,10 +15,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
 
     /**
      * Show the application dashboard.
@@ -26,8 +27,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = CategoryHouses::all();
+        $categories = Category::all();
         return view('home.viewhome', compact('categories'));
+    }
+
+    public function filterByCategory($categoryId)
+    {
+        $houses = Category::findOrFail($categoryId)->houses;
+        $categories = Category::all();
+        return view('home.list-house', compact('houses', 'categories'));
+    }
+    public function showHouse($id){
+        $house = House::findOrFail($id);
+        return view('home.house-detail', compact('house'));
     }
 
 

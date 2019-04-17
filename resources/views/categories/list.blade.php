@@ -33,13 +33,8 @@
                                     <td>{{ $category->name }}</td>
                                     <td><img src="{{asset("storage/$category->image")}}" alt="" width="50px"
                                              height="50px"></td>
-                                    {{--                            {{dd($category->image)}}--}}
-                                    {{--                            <td>{{ count($category->house) }}</td>--}}
+                                    <td>{{count($category->houses)}}</td>
                                     <td>
-                                        No data
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-outline-info" href="#">Show</a>
                                         <a class="btn btn-outline-info" href="{{route('category.edit', $category->id)}}">Edit</a>
                                         <a href="{{route('category.delete',$category->id)}}" class="btn btn-outline-danger"
                                            onclick="return confirm('Bạn chắc chắn muốn xóa?')">Delete</a>

@@ -38,17 +38,17 @@ class AuthServiceProvider extends ServiceProvider
         });
 
 
-        Gate::define('view-home.viewhome', function ($user) {
-
-            if ($user->role == "1" || $user->role == "0") {
-
-                return true;
-
-            }
-
-            return false;
-
-        });
+//        Gate::define('view-home.viewhome', function ($user) {
+//
+//            if ($user->role == "1" || $user->role == "0") {
+//
+//                return true;
+//
+//            }
+//
+//            return false;
+//
+//        });
 
 
 
