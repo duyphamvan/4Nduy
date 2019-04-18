@@ -1,32 +1,179 @@
 @extends('home.index')
 @section('content')
     @include('home.nav')
-    <div class="container-fluid" style="background-image: url({{asset('storage/images/slider-1.jpg')}});
-            background-position: center;
-            background-attachment: fixed;
-            background-size: cover; width: 100%; height: 100%">
+    <style>
+        html,body {
+         /*min-height:1500px;*/
+            height: 100%;
+            background:url(http://thuthuatphanmem.vn/uploads/2018/05/18/hinh-nen-full-hd-1080-bai-bien-dep_022853660.jpg) fixed;
+            background-size:cover;}
 
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul li {
+            list-style: none
+        }
+
+        a, a:hover {
+            text-decoration: none;
+            box-shadow: none;
+            outline: none;
+            -moz-transition: all 0.2s ease-in;
+            -o-transition: all 0.2s ease-in;
+            -webkit-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            color: #fff;
+        }
+
+        .hls_sol li {
+            width: 25%;
+            max-width: 100%;
+            display: inline-block;
+            float: left;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            height: 400px;
+        }
+
+        .hls_sol li img {
+            height: 100%;
+        }
+
+        .hls_sol ul {
+            padding: 0;
+            display: flow-root;
+        }
+
+        .hls_sol li:hover img {
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        .hls_sol li img {
+            -webkit-transition: transform 0.5s ease;
+            -o-transition: transform 0.5s ease;
+            transition: transform 0.5s ease;
+        }
+
+        .hls_sol .hls_sol_data {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            transition: 0.3s ease-in-out;
+            background: rgba(0, 0, 0, 0.28);
+            visibility: hidden
+        }
+
+        .hls_sol ul li:hover .hls_sol_data {
+            background: rgba(0, 0, 0, 0.51);
+            transition: 0.3s ease-in-out;
+            visibility: visible
+        }
+
+        .hls_data {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 60px 20px;
+        }
+
+        .hls_data a {
+            display: block;
+        }
+
+        .hls_title {
+            text-align: right;
+            font-size: 22px;
+            border-bottom: 2px solid #7db4ff;
+            padding: 10px 0;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .hls_title:hover {
+            color: #fff;
+        }
+
+        .hls_sol_data h3 {
+            color: #fff;
+            transition: 0.5s
+        }
+
+        .hls_sol_data:hover h3 {
+            transition: 0.5s ease;
+            margin-top: 100px;
+        }
+
+        .btn-pro {
+            border-radius: 0;
+            color: #222;
+            background: #fff;
+            display: inline-block !important;
+            float: right;
+        }
+
+        .btn-pro:hover {
+            color: #fff;
+            background: #355c79;
+        }
+
+        .sec_title {
+            text-align: center;
+            margin: 30px 0 30px;
+        }
+
+        .hls_data {
+            left: unset;
+            right: -310px;
+            transition: 1s ease
+        }
+
+        .hls_sol_data:hover .hls_data {
+            left: 0;
+            right: 0;
+            transition: 1s ease
+        }
+        .house-detail{
+            margin-top: 200px;
+        }
+    </style>
+<div class="house-detail">
+    <h1>{{$houseDetail->name}}</h1>
+    <div class="hls_sol">
+        <ul>
+            @foreach($houses as $key=>$house)
+                <li>
+                    <img src="{{asset("storage/$house->img")}}" alt="">
+                    <div class="hls_sol_data">
+                        <h3>{{$houseDetail->name}}</h3>
+                        <div class="hls_data">
+                            <a href="https://500px.com/ravi7284007" target="_blank" class="hls_title">{{$houseDetail->address}}</a>
+                            <a href="#https://www.facebook.com/ravi7284007" class="btn btn-pro" target="_blank">
+                                Booking Now</a>
+                        </div>
+                    </div>
+                </li>
+            @endforeach
+        </ul>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card house">
-                        <img src="{{asset("storage/$house->images")}}" class="card-img-top img-fluid"
-                             alt="...">
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card-body detail">
-                    <h5 class="card-title">Name: {{$house->name}}</h5>
-                    <p class="card-text">Bedroom: {{$house->bedroom}}</p>
-                    <p class="card-text">Bathroom: {{$house->bathroom}}</p>
-                    <p class="card-text">Address: {{$house->address}}</p>
-                    <p class="card-text">
-                        <small class="price text-muted">Price: {{$house->price}}$</small>
-                    </p>
-                    <p class="card-text">Description: {{$house->description}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 @endsection
+
+
+

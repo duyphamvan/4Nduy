@@ -1,48 +1,194 @@
 @extends('home.index')
 @section('content')
     @include('home.nav')
-{{--    @include('home.slides')--}}
-    <div class="container-fluid" style="background-image: url({{asset('storage/images/slider-1.jpg')}});
-            background-position: center;
-            background-attachment: fixed;
-            background-size: cover; width: 100%; height: 100%">
+    <style>
+        html, body {
+            height: 100%;
+            background: url(http://thuthuatphanmem.vn/uploads/2018/05/18/hinh-nen-full-hd-1080-bai-bien-dep_022853660.jpg) fixed;
+            background-size: cover;
+        }
 
-    </div>
 
-    <div class="container ">
-        <div class="row">
-            @if(count($houses)==0)
-                <h5 class="text-capitalize text-center mt-5">Hiện tại chưa có nhà nào được </h5>
-            @else
-{{--                <div class="col-sm-12">--}}
-{{--                    <h3 class="text-center mt-2">Các điểm đến có căn hộ nổi bật</h3>--}}
-{{--                </div>--}}
-                <div class="card-group contenthouse">
-                    @foreach($houses as $key =>$house)
-                        <div class="col-sm-4  pb-3">
-                            <div class="card house">
-                                <a href="{{route('show',$house->id)}}" class="houselist">
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
-                                    <img src="{{asset("storage/$house->images")}}" class="card-img-top img-fluid"
+        ul li {
+            list-style: none
+        }
+
+        a, a:hover {
+            text-decoration: none;
+            box-shadow: none;
+            outline: none;
+            -moz-transition: all 0.2s ease-in;
+            -o-transition: all 0.2s ease-in;
+            -webkit-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            color: #fff;
+        }
+
+        .hls_sol li {
+            width: 25%;
+            max-width: 100%;
+            display: inline-block;
+            float: left;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            height: 400px;
+        }
+
+        .hls_sol li img {
+            height: 100%;
+        }
+
+        .hls_sol ul {
+            padding: 0;
+            display: flow-root;
+        }
+
+        .hls_sol li:hover img {
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        .hls_sol li img {
+            -webkit-transition: transform 0.5s ease;
+            -o-transition: transform 0.5s ease;
+            transition: transform 0.5s ease;
+        }
+
+        .hls_sol .hls_sol_data {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            transition: 0.3s ease-in-out;
+            background: rgba(0, 0, 0, 0.28);
+            visibility: hidden
+        }
+
+        .hls_sol ul li:hover .hls_sol_data {
+            background: rgba(0, 0, 0, 0.51);
+            transition: 0.3s ease-in-out;
+            visibility: visible
+        }
+
+        .hls_data {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 60px 20px;
+        }
+
+        .hls_data a {
+            display: block;
+        }
+
+        .hls_title {
+            text-align: right;
+            font-size: 22px;
+            border-bottom: 2px solid #7db4ff;
+            padding: 10px 0;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .hls_title:hover {
+            color: #fff;
+        }
+
+        .hls_sol_data h3 {
+            color: #fff;
+            transition: 0.5s
+        }
+
+        .hls_sol_data:hover h3 {
+            transition: 0.5s ease;
+            margin-top: 100px;
+        }
+
+        .btn-pro {
+            border-radius: 0;
+            color: #222;
+            background: #fff;
+            display: inline-block !important;
+            float: right;
+        }
+
+        .btn-pro:hover {
+            color: #fff;
+            background: #355c79;
+        }
+
+        .sec_title {
+            text-align: center;
+            margin: 30px 0 30px;
+        }
+
+        .hls_data {
+            left: unset;
+            right: -310px;
+            transition: 1s ease
+        }
+
+        .hls_sol_data:hover .hls_data {
+            left: 0;
+            right: 0;
+            transition: 1s ease
+        }
+
+        .house-detail {
+            margin-top: 200px;
+        }
+    </style>
+
+    <div class="house-detail">
+        @if(count($houses)==0)
+            <h5 class="text-capitalize text-center mt-5">Hiện tại chưa có nhà nào được tạo </h5>
+        @else
+            {{--                <div class="col-sm-12">--}}
+            {{--                    <h3 class="text-center mt-2">Các điểm đến có căn hộ nổi bật</h3>--}}
+            {{--                </div>--}}
+            <div class="house-detail">
+                <h1>{{$category->name}}</h1>
+                <div class="hls_sol">
+                    <ul>
+                        @foreach($houses as $key =>$house)
+                            <a href="{{route('show',$house->id)}}" class="houselist">
+                                <li>
+
+                                    <img src="{{asset("storage/" . $house->images->first()['img'])}}"
+                                         class="card-img-top img-fluid"
                                          alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{$house->name}}</h5>
-                                        <p class="card-text">{{$house->description}}</p>
-                                        <p class="card-text">
-                                            <small class="price text-muted">{{$house->price}}$</small>
-                                        </p>
+                                    <div class="hls_sol_data">
+                                        <h3>{{$house->name}}</h3>
+                                        <div class="hls_data">
+                                            <p href="#" class="hls_title">{{$house->description}}</p>
+                                            <p href="#" class="btn btn-pro">
+                                                {{$house->price}}$</p>
+                                        </div>
                                     </div>
-                                </a>
 
-                            </div>
-                        </div>
-                    @endforeach
+                                </li>
+                            </a>
+                        @endforeach
+                    </ul>
                 </div>
-            @endif
-        </div>
+            </div>
+        @endif
     </div>
 @endsection
-
-
-
 

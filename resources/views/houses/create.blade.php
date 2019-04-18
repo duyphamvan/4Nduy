@@ -30,7 +30,7 @@
 
                     <div class="form-group">
                         <label>Image</label>
-                        <input type="file" class="form-control" name="images"  placeholder="Enter name" required>
+                        <input type="file" class="form-control" name="image[]"  placeholder="Enter name" required multiple>
                     </div>
                     <div class="form-group">
                         <label>Description</label>

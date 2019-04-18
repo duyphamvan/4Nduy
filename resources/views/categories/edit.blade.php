@@ -15,7 +15,7 @@
 
                     <div class="form-group">
                         <label>Image</label>
-                        <input type="file" class="form-control mb-2" name="image" value="{{ $category->image }}" required>
+                        <input type="file" class="form-control mb-2" name="image" value="{{ $category->image }}">
                         <img src="{{asset("storage/$category->image")}}" alt="" width="200px" height="150px">
                     </div>
                     <button type="submit" class="btn btn-primary">Edit</button>

@@ -30,7 +30,7 @@
 
                     <div class="form-group">
                         <label>Image</label>
-                        <input value="{{$house->images}}" type="file" class="form-control" name="images"  placeholder="Enter name" required>
+                        <input value="{{$house->images}}" type="file" class="form-control" name="images"  placeholder="Enter name">
                         <img src="{{asset("storage/$house->images")}}" alt="" width="200px" height="150px">
                     </div>
                     <div class="form-group">

@@ -32,18 +32,32 @@
 
         .MultiCarousel .MultiCarousel-inner .item .link > div {
             text-align: center;
-            /*padding: 10px;*/
             margin: 10px;
             background: #f1f1f1;
             color: #666;
             height: 250px;
+            position: relative;
+        }
+        .MultiCarousel .MultiCarousel-inner .item .link > div:hover .lead {
+            bottom: 28px;
+
         }
         .MultiCarousel .MultiCarousel-inner  .item .link .lead {
-            font-size: 14px;
+            position: absolute;
+            z-index: 2;
+            bottom: -200px;
+            left: 20px;
+            color: #f1f1f1;
+            font-size: 20px;
+            font-weight: 800;
+            transition: 0.8s;
         }
          .MultiCarousel .MultiCarousel-inner .item .link .one {
              width: 100%;
-             height: 175px;
+             position: absolute;
+             height: 100%;
+             top: 0px;
+             left: 0px;
         }
 
 
@@ -66,6 +80,34 @@
             pointer-events: none;
             background: #ccc;
         }
+        .MultiCarousel .MultiCarousel-inner .item .link > div:hover .bg {
+            opacity: 1;
+        }
+        .MultiCarousel .MultiCarousel-inner .item .link .bg{
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 1;
+            top: 0px;
+            left: 0px;
+            background: #0000006b;
+            opacity: 0;
+        }
+        .MultiCarousel .MultiCarousel-inner .item .link > div:hover  p.total {
+            bottom: 10px;
+            opacity: 1;
+
+        }
+        .MultiCarousel .MultiCarousel-inner .item .link p.total {
+            position: absolute;
+            z-index: 2;
+            bottom: -100px;
+            left: 20px;
+            color: white;
+            opacity: 0;
+            transition: 1s;
+        }
     </style>
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -74,6 +116,9 @@
 
 
 <div class="container-fluid">
+    <div class="row justify-content-center">
+        <h3>Dù bạn đang tìm chỗ nghỉ nào chăng nữa, chúng tôi đều có...</h3>
+    </div>
     <div class="row">
         <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
             <div class="MultiCarousel-inner">
@@ -81,9 +126,10 @@
                     <div class="item element">
                         <a href="{{route('filter', $category->id)}}" class="link">
                             <div class="pad15">
+                                <div class="bg"></div>
                                 <img class="img-fluid one" src="{{asset("storage/$category->image")}}" >
                                 <p class="lead">{{$category->name}}</p>
-                                <p>50% off</p>
+                                <p class="total">Total: {{count($category->houses)}} house</p>
                             </div>
                         </a>
                     </div>

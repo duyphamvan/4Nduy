@@ -9,24 +9,24 @@
             <div class="carousel-item active">
                 <img class="d-block w-100" src="{{asset('storage/images/slider-1.jpg')}}" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <a href="" class="btn btn-primary">Learn More</a>
+                    <h2 class="display-1">Special</h2>
+                    <p class="display-3"> 7 Days in Switzerland</p>
+                    <a href="" class="btn btn-primary display-3">Learn More</a>
                 </div>
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="{{asset('storage/images/slider-2.jpg')}}" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h2 class="display-1">Vacation</h2>
+                    <p class="display-3">Find your perfect</p>
                     <a href="" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="{{asset('storage/images/slider-3.jpg')}}" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h2 class="display-1">The Hidden World</h2>
+                    <p class="display-3">Open your eyes to</p>
                     <a href="" class="btn btn-primary">Learn More</a>
                 </div>
             </div>

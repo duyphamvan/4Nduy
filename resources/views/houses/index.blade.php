@@ -43,8 +43,7 @@
                                     <td>{{ $house->description }}</td>
                                     <td>{{ $house->price }}</td>
                                     <td>
-                                        <img src="{{asset("storage/$house->images")}}" alt="" width="50px"
-                                             height="50px">
+                                       {{count($house->images)}}
                                     </td>
                                     <td>
                                         {{--                                        <a class="btn btn-outline-info" href="#">Show</a>--}}

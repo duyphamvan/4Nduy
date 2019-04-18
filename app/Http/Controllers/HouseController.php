@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\House;
+use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -31,12 +32,15 @@ class HouseController extends Controller
         $house->bathroom  = $request->input('bathroom');
         $house->description  = $request->input('description');
         $house->price  = $request->input('price');
-        if ($request->hasFile('images')) {
-            $images = $request->file('images');
-            $path = $images->store('images', 'public');
-            $house->images = $path;
-        }
         $house->save();
+        $images = $request->image;
+        foreach ($images as $image){
+            $imageDetail = new Image();
+            $imageDetail->house_id = $house->id;
+            $path = $image->store('images','public');
+            $imageDetail->img = $path;
+            $imageDetail->save();
+        }
         Session::flash('success', 'Tạo mới khách hàng thành công');
         return redirect()->route('house.index');
     }
@@ -72,6 +76,7 @@ class HouseController extends Controller
     public function destroy($id)
     {
         $house = House::findOrFail($id);
+        $house->images()->delete();
         $house->delete();
         Session::flash('success', 'Xóa khách hàng thành công');
         return redirect()->route('house.index');

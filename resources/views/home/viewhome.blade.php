@@ -2,7 +2,9 @@
 @section('content')
     @include('home.nav')
     @include('home.slides')
+    @include('home.date')
     @include('home.houses', ['categories'=>$categories])
+
 
 {{--    <div class="container">--}}
 {{--        <div class="col-sm-12">--}}

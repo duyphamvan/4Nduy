@@ -66,7 +66,7 @@ class CategoryHousesController extends Controller
     public function destroy($id)
     {
         $category = Category::where('id',$id)->first();
-//        $category->blogs()->delete();
+        $category->houses()->delete();
         $image = $category->image;
         if($image ){
              Storage::delete('public'.$image);

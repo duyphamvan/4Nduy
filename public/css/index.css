@@ -4,6 +4,35 @@
     font-family: 'Poppins', sans-serif;
 }
 
+p.card-text.description {
+    height: 40px;
+    overflow: hidden;
+}
+
+.input-group-addon.to {
+    background-color: #ea9b2c;
+    border: none;
+}
+
+button.btn.btn-block.btn-primary.search {
+    border-radius: 0%;
+    height: 46px;
+    font-size: 17px;
+}
+
+.form-control.blockdate {
+    height: 46px;
+    display: block;
+    border: 2px solid #ea9b2c;
+    border-radius: 0;
+}
+
+form.bookdate.needs-validation {
+    height: 50px;
+    line-height: 50px;
+    border: 2px solid #ea9a06;
+}
+
 .card-body.detail {
     width: 400px;
     height: 420px;
@@ -12,6 +41,7 @@
 
 .card-group.contenthouse {
     margin-top: -150px;
+    width: 100%;
 }
 
 small.price.text-muted {
@@ -34,11 +64,12 @@ a.houselist {
 img.card-img-top.img-fluid {}
 
 .card.house {
-    height: 420px;
+    height: 394px;
 }
 
 .col-sm-6.text-right.iconright ul li a span {
     color: #f3f4f5;
+    font-size: 16px;
 }
 
 .dropdown-menu.dropdown-menu-right.logout.show {
@@ -78,9 +109,15 @@ a.navbar-brand.travel {
 }
 
 .col-sm-6.text-right.iconright i {
-    color: #549cfc;
+    color: #ffffff;
     margin-right: 10px;
+    font-size: 16px;
 }
+.col-sm-6.text-right.iconright a {
+    font-size: 16px;
+    color: #529afa;
+}
+
 
 i.fas.fa-search {
     color: white;
@@ -125,4 +162,5 @@ a.navbar-brand.travel {
     position: fixed;
     width: 100%;
     z-index:3;
+    top: 0px;
 }

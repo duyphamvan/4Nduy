@@ -46,3 +46,6 @@ Route::get('{id}/edit-house','HouseController@edit')->name('house.edit');
 Route::post('{id}/update-house','HouseController@update')->name('house.update');
 Route::get('{id}/delete-house', 'HouseController@destroy')->name('house.delete');
 
+
+
+

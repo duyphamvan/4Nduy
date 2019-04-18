@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\House;
+use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -34,12 +35,15 @@ class HomeController extends Controller
     public function filterByCategory($categoryId)
     {
         $houses = Category::findOrFail($categoryId)->houses;
+        $category = Category::findOrFail($categoryId);
         $categories = Category::all();
-        return view('home.list-house', compact('houses', 'categories'));
+        return view('home.list-house', compact('houses', 'category', 'image'));
     }
     public function showHouse($id){
-        $house = House::findOrFail($id);
-        return view('home.house-detail', compact('house'));
+
+        $houseDetail = House::findOrFail($id);
+        $houses = House::findOrFail($id)->images;
+        return view('home.house-detail', compact('houseDetail','houses'));
     }
 
 
