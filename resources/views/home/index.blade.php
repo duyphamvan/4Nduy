@@ -30,7 +30,12 @@
 <script>
     $('.carousel').carousel({
         interval: 4000
-    })
+    });
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            $('.menu').toggleClass("blue", ($(window).scrollTop() > 150));
+        });
+    });
 
 </script>
 </body>

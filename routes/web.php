@@ -50,6 +50,7 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/categories/{id}', 'HomeController@filterByCategory')->name('filter');
 Route::get('/house/{id}', 'HomeController@showHouse')->name('show');
+Route::get('/search', 'HomeController@search')->name('search');
 
 //Route categories
 Route::get('/list-categories','CategoryHousesController@index')->name('category.index');
