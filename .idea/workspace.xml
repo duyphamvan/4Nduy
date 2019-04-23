@@ -7,6 +7,7 @@
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HouseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HouseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/date.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/date.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/house-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/house-detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/houses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/houses.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/nav.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/viewhome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/viewhome.blade.php" afterDir="false" />
@@ -50,7 +51,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/home/date.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-919">
@@ -76,6 +77,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
               <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/home/houses.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-140">
+              <caret line="119" column="81" selection-start-line="119" selection-start-column="81" selection-end-line="119" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -127,7 +137,6 @@
         <option value="$PROJECT_DIR$/public/js/detail.js" />
         <option value="$PROJECT_DIR$/../1.html" />
         <option value="$PROJECT_DIR$/resources/views/categories/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/home/houses.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home/list-house.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/admin.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home/nav.blade.php" />
@@ -146,6 +155,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/FormSearchRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/home/date.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/home/houses.blade.php" />
       </list>
     </option>
   </component>
@@ -415,18 +425,17 @@
       <workItem from="1555896260294" duration="20477000" />
       <workItem from="1555932148993" duration="18000" />
       <workItem from="1555941608430" duration="11117000" />
-      <workItem from="1555982285088" duration="23246000" />
+      <workItem from="1555982285088" duration="23558000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99854000" />
+    <option name="totallyTimeSpent" value="100166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21947326" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21947326" />
       <window_info id="npm" order="1" side_tool="true" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Structure" order="3" weight="0.24980047" />
@@ -441,7 +450,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.16449511" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.514658" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -564,13 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="112" selection-start-line="17" selection-start-column="112" selection-end-line="17" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home/houses.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -750,6 +752,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/date.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-919">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home/viewhome.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -757,10 +766,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home/date.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/home/houses.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-919">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        <state relative-caret-position="-140">
+          <caret line="119" column="81" selection-start-line="119" selection-start-column="81" selection-end-line="119" selection-end-column="81" />
         </state>
       </provider>
     </entry>
