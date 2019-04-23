@@ -126,3 +126,9 @@
         </div>
     </div>
 </div>
+<style>
+    .blue {
+        transition: 1s;
+        opacity: 0;
+    }
+</style>
