@@ -30,7 +30,7 @@
 
                     <div class="form-group">
                         <label>Image</label>
-                        <input value="{{$house->images}}" type="file" class="form-control" name="image[]" multiple  placeholder="Enter name">
+                        <input value="{{$house->images}}" type="file" class="form-control" name="images"  placeholder="Enter name">
                         <img src="{{asset("storage/$house->images")}}" alt="" width="200px" height="150px">
                     </div>
                     <div class="form-group">
@@ -39,20 +39,11 @@
                     </div>
                     <div class="form-group">
                         <label>Price</label>
-                        <input value="{{$house->price}}" type="text" class="form-control" name="price" >
+                        <input value="{{$house->price}}" type="text" class="form-control" name="price"  required>
                     </div>
                     <div class="form-group">
-                        <label>Date From</label>
-{{--                        {{dd($house->date_from)}}--}}
-                        <input value="{{$house->date_from}}" type="date" class="form-control" name="date_from" >
-                    </div>
-                    <div class="form-group">
-                        <label>Date To</label>
-                        <input value="{{$house->date_to}}" type="date" class="form-control" name="date_to" >
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Edit Category: {{ $category->name }}</label>
-                        <select  class="form-control" name="category_id" required>
+                        <label for="exampleFormControlSelect1">Category</label>
+                        <select  class="form-control" name="category_id">
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
