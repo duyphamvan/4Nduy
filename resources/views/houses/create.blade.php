@@ -60,6 +60,16 @@
                             <p class="help text-danger">{{ $errors->first('price') }}</p>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label>Date From</label>
+                        <input type="date" class="form-control" name="date_from"  required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date To</label>
+                        <input type="date" class="form-control" name="date_to"  required>
+                    </div>
+
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Category</label>
                         <div class="col-sm-10">

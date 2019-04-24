@@ -27,6 +27,8 @@
                             <th scope="col">Description</th>
                             <th scope="col">Price</th>
                             <th scope="col">Image</th>
+                            <th scope="col">Date From</th>
+                            <th scope="col">Date To</th>
                             <th scope="col">Action</th>
                         </tr>
                         </thead>
@@ -49,8 +51,9 @@
                                     <td>
                                        {{count($house->images)}}
                                     </td>
+                                    <td>{{ $house->date_from }}</td>
+                                    <td>{{ $house->date_to }}</td>
                                     <td>
-                                        {{--                                        <a class="btn btn-outline-info" href="#">Show</a>--}}
                                         <a class="btn btn-outline-info"
                                            href="{{route('house.edit', $house->id)}}">Edit</a>
                                         <a href="{{route('house.delete',$house->id)}}" class="btn btn-outline-danger"

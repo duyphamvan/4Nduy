@@ -2,177 +2,207 @@
 @section('content')
     @include('home.nav')
     <style>
-        html,body {
-         /*min-height:1500px;*/
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
             height: 100%;
-            background:url(http://thuthuatphanmem.vn/uploads/2018/05/18/hinh-nen-full-hd-1080-bai-bien-dep_022853660.jpg) fixed;
-            background-size:cover;}
-
-
-        img {
-            max-width: 100%;
-            height: auto;
+            background: url(http://thuthuatphanmem.vn/uploads/2018/05/18/hinh-nen-full-hd-1080-bai-bien-dep_022853660.jpg) fixed;
+            background-size: cover;
         }
 
-        ul li {
-            list-style: none
+        body {
+            margin: 0;
+            padding: 0;
         }
 
-        a, a:hover {
-            text-decoration: none;
-            box-shadow: none;
-            outline: none;
-            -moz-transition: all 0.2s ease-in;
-            -o-transition: all 0.2s ease-in;
-            -webkit-transition: all 0.2s ease-in;
-            transition: all 0.2s ease-in;
-        }
-
-        h1 {
-            text-align: center;
-            margin: 30px 0;
-            color: #fff;
-        }
-
-        .hls_sol li {
+        .column {
+            float: left;
             width: 25%;
             max-width: 100%;
-            display: inline-block;
-            float: left;
-            text-align: center;
+            height: 100%;
             overflow: hidden;
-            position: relative;
-            height: 400px;
+
         }
 
-        .hls_sol li img {
+        .column .hoverimage{
+            opacity: 0.8;
+            cursor: pointer;
+            height: 100%;
+            transition: 1s;
+        }
+
+        .column img:hover {
+            opacity: 1;
+            transform: scale(1.3);
+        }
+
+        .row.houses :after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .detaillist {
+            position: relative;
+            display: none;
+            height: 350px;
+        }
+
+        .detaillist img {
             height: 100%;
         }
 
-        .hls_sol ul {
-            padding: 0;
-            display: flow-root;
-        }
-
-        .hls_sol li:hover img {
-            -moz-transform: scale(1.1);
-            -webkit-transform: scale(1.1);
-            -ms-transform: scale(1.1);
-            -o-transform: scale(1.1);
-            transform: scale(1.1);
-        }
-
-        .hls_sol li img {
-            -webkit-transition: transform 0.5s ease;
-            -o-transition: transform 0.5s ease;
-            transition: transform 0.5s ease;
-        }
-
-        .hls_sol .hls_sol_data {
+        #imgtext {
             position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            top: 0;
-            transition: 0.3s ease-in-out;
-            background: rgba(0, 0, 0, 0.28);
-            visibility: hidden
+            bottom: 15px;
+            left: 15px;
+            color: white;
+            font-size: 20px;
         }
 
-        .hls_sol ul li:hover .hls_sol_data {
-            background: rgba(0, 0, 0, 0.51);
-            transition: 0.3s ease-in-out;
-            visibility: visible
+        .listhouse {
+            height: 200px;
+            list-style: none;
+            overflow: hidden;
         }
 
-        .hls_data {
+        .closebtn {
             position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 60px 20px;
+            top: 10px;
+            right: 15px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
         }
 
-        .hls_data a {
-            display: block;
-        }
-
-        .hls_title {
-            text-align: right;
-            font-size: 22px;
-            border-bottom: 2px solid #7db4ff;
-            padding: 10px 0;
-            margin: 10px 0;
+        .add-to-cart {
+            position: relative;
+            display: inline-block;
+            background: #3e3e3f;
             color: #fff;
-        }
-
-        .hls_title:hover {
-            color: #fff;
-        }
-
-        .hls_sol_data h3 {
-            color: #fff;
-            transition: 0.5s
-        }
-
-        .hls_sol_data:hover h3 {
-            transition: 0.5s ease;
-            margin-top: 100px;
-        }
-
-        .btn-pro {
+            border: none;
             border-radius: 0;
-            color: #222;
-            background: #fff;
-            display: inline-block !important;
-            float: right;
+            padding: 15px 20px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transform: translateZ(0);
+            transition: color 0.3s ease;
+            letter-spacing: 0.0625rem;
         }
 
-        .btn-pro:hover {
-            color: #fff;
-            background: #355c79;
+        .add-to-cart:hover:before {
+            transform: scaleX(1);
         }
 
-        .sec_title {
-            text-align: center;
-            margin: 30px 0 30px;
-        }
-
-        .hls_data {
-            left: unset;
-            right: -310px;
-            transition: 1s ease
-        }
-
-        .hls_sol_data:hover .hls_data {
+        .add-to-cart:before {
+            position: absolute;
+            content: '';
+            z-index: -1;
+            top: 0;
             left: 0;
             right: 0;
-            transition: 1s ease
+            bottom: 0;
+            background: #565657;
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            transition: transform 0.3s ease-out;
         }
-        .house-detail{
-            margin-top: 200px;
+
+        .list-house-detail {
+            margin-top: 300px;
         }
+        .description{
+            color: #f8ffe0;
+        }
+
     </style>
-<div class="house-detail">
-    <h1>{{$houseDetail->name}}</h1>
-    <div class="hls_sol">
-        <ul>
-            @foreach($houses as $key=>$house)
-                <li>
-                    <img src="{{asset("storage/$house->img")}}" alt="">
-                    <div class="hls_sol_data">
-                        <h3>{{$houseDetail->name}}</h3>
-                        <div class="hls_data">
-                            <a href="https://500px.com/ravi7284007" target="_blank" class="hls_title">{{$houseDetail->address}}</a>
-                            <a href="#https://www.facebook.com/ravi7284007" class="btn btn-pro" target="_blank">
-                                Booking Now</a>
-                        </div>
-                    </div>
-                </li>
-            @endforeach
-        </ul>
+
+    <!-- The four columns -->
+    <div class="container list-house-detail">
+        <div style="text-align:center">
+            <h2  class="mb-5">{{$houseDetail->name}}</h2>
+        </div>
+
+        <div class="row houses">
+            <div class="col-sm-7">
+                <div class="detaillist">
+                    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                    <img class="" id="expandedImg" style="width:100%" alt="aaa">
+                    <div id="imgtext"></div>
+                </div>
+                <ul class="listhouse">
+                    @foreach($houses as $house)
+                        <li class="column">
+                            <img class="hoverimage" src="{{asset("storage/".$house->img)}}" alt="Nature" style="width:100%"
+                                 onclick="myFunction(this);">
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="col-sm-5">
+                <h1>
+                    {{$houseDetail->address}}
+                </h1>
+                <h2>${{$houseDetail->price}}</h2>
+                <div class="description">
+                    <p>The purposes of bonsai are primarily contemplation for the viewer, and the pleasant exercise of
+                        effort and ingenuity for the grower.</p>
+                    <p>By contrast with other plant cultivation practices, bonsai is not intended for production of food
+                        or for medicine. Instead, bonsai practice focuses on long-term cultivation and shaping of one or
+                        more small trees growing in a container.</p>
+                </div>
+                <button class="add-to-cart">Booking</button>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="container mt-5">
+        <h3>You may also like</h3>
+        <div class="row">
+
+            <div class="col-sm-3">
+                <div class="column-xs-12 column-md-4">
+                    <img src="https://source.unsplash.com/miziNqvJx5M" class="img-fluid">
+                    <h4>Succulent</h4>
+                    <p class="price">$19.99</p>
+                </div>
+            </div>
+             <div class="col-sm-3">
+                <div class="column-xs-12 column-md-4">
+                    <img src="https://source.unsplash.com/miziNqvJx5M" class="img-fluid">
+                    <h4>Succulent</h4>
+                    <p class="price">$19.99</p>
+                </div>
+            </div>
+             <div class="col-sm-3">
+                <div class="column-xs-12 column-md-4">
+                    <img src="https://source.unsplash.com/miziNqvJx5M" class="img-fluid">
+                    <h4>Succulent</h4>
+                    <p class="price">$19.99</p>
+                </div>
+            </div>
+             <div class="col-sm-3">
+                <div class="column-xs-12 column-md-4">
+                    <img src="https://source.unsplash.com/miziNqvJx5M" class="img-fluid">
+                    <h4>Succulent</h4>
+                    <p class="price">$19.99</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+        function myFunction(imgs) {
+            var expandImg = document.getElementById("expandedImg");
+            var imgText = document.getElementById("imgtext");
+            expandImg.src = imgs.src;
+            imgText.innerHTML = imgs.alt;
+            expandImg.parentElement.style.display = "block";
+        }
+    </script>
+
 @endsection
 
 

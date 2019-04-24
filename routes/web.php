@@ -38,3 +38,24 @@ Route::post('/store-house','HouseController@store')->name('house.store');
 Route::get('{id}/edit-house','HouseController@edit')->name('house.edit');
 Route::post('{id}/update-house','HouseController@update')->name('house.update');
 Route::get('{id}/delete-house', 'HouseController@destroy')->name('house.delete');
+
+
+//Route profile
+Route::get('/admin', 'HomeController@showPageAdmin')->name('admin.admin');
+Route::prefix('admin')->group(function () {
+    Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'Auth\LoginController@login');
+    Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+    Route::prefix('/users')->group(function () {
+        Route::get('/', 'UserController@index')->name('users.index');
+        Route::get('/create', 'UserController@create')->name('users.create');
+        Route::post('/create', 'UserController@store')->name('users.store');
+        Route::get('/{id}/delete', 'UserController@destroy')->name('users.destroy');
+        Route::get('/{id}/update', 'UserController@update')->name('users.update');
+        Route::post('/{id}/update', 'UserController@edit')->name('users.edit');
+        Route::get('/{id}/profile', 'UserController@profiles')->name('users.profiles');
+    });
+});
+
+// Route search
+Route::get('/search', 'HomeController@search')->name('search');

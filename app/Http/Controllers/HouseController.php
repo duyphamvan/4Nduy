@@ -36,6 +36,10 @@ class HouseController extends Controller
         $house->bathroom  = $request->input('bathroom');
         $house->description  = $request->input('description');
         $house->price  = $request->input('price');
+        $house->date_from  = $request->input('date_from');
+        $house->date_to  = $request->input('date_to');
+
+
         $house->save();
         $images = $request->image;
         foreach ($images as $image){
@@ -46,14 +50,16 @@ class HouseController extends Controller
             $imageDetail->save();
         }
         Session::flash('success', 'Tạo mới khách hàng thành công');
+
         return redirect()->route('house.index');
     }
 
     public function edit($id)
     {
         $house = House::findOrFail($id);
+        $category = House::findOrFail($id)->category;
         $categories = Category::all();
-        return view('houses.edit', compact('house', 'categories'));
+        return view('houses.edit', compact('house', 'categories', 'category'));
     }
 
     public function update(UpdateHouseRequest $request, $id)
@@ -66,6 +72,11 @@ class HouseController extends Controller
         $house->bathroom  = $request->input('bathroom');
         $house->description  = $request->input('description');
         $house->price  = $request->input('price');
+        $house->date_from  = $request->input('date_from');
+        $house->date_to  = $request->input('date_to');
+
+//        dd($house->date_from);
+//        dd($house->date_to);
         if($request->hasFile('images')){
             $currentImage = $house->images;
             if($currentImage){
