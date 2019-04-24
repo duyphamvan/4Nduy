@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\House;
+use App\Http\Requests\CreateHouseRequest;
+use App\Http\Requests\NewsAddHouseRequest;
+use App\Http\Requests\UpdateHouseRequest;
 use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+
 
 class HouseController extends Controller
 {
@@ -17,12 +21,12 @@ class HouseController extends Controller
         $categories = Category::all();
         return view('houses.index', compact('houses', 'categories'));
     }
+
     public function create()
-    {
-        $categories = Category::all();
+    {       $categories = Category::all();
         return view('houses.create', compact('categories'));
     }
-    public function store(Request $request)
+    public function store(CreateHouseRequest $request)
     {
         $house = new House();
         $house->name     = $request->input('name');
@@ -44,13 +48,15 @@ class HouseController extends Controller
         Session::flash('success', 'Tạo mới khách hàng thành công');
         return redirect()->route('house.index');
     }
+
     public function edit($id)
     {
         $house = House::findOrFail($id);
         $categories = Category::all();
         return view('houses.edit', compact('house', 'categories'));
     }
-    public function update(Request $request, $id)
+
+    public function update(UpdateHouseRequest $request, $id)
     {
         $house = House::findOrFail($id);
         $house->name     = $request->input('name');
@@ -73,6 +79,7 @@ class HouseController extends Controller
         Session::flash('success', 'Cập nhật khách hàng thành công');
         return redirect()->route('house.index');
     }
+
     public function destroy($id)
     {
         $house = House::findOrFail($id);
@@ -81,24 +88,9 @@ class HouseController extends Controller
         Session::flash('success', 'Xóa khách hàng thành công');
         return redirect()->route('house.index');
     }
-//    public function filterByCity(Request $request)
+//    public function checkValidation(FormExampleRequest $request)
 //    {
-//        $idCity = $request->input('city_id');
-//        $cityFilter = City::findOrFail($idCity);
-//        $customers = Customer::where('city_id', $cityFilter->id)->get();
-//        $totalCustomerFilter = count($customers);
-//        $cities = City::all();
-//        return view('customers.list', compact('customers', 'cities', 'totalCustomerFilter', 'cityFilter'));
-//    }
-//    public function search(Request $request)
-//    {
-//        $keyword = $request->input('keyword');
-//        if (!$keyword) {
-//            return redirect()->route('customers.index');
-//        }
-//        $customers = Customer::where('name', 'LIKE', '%' . $keyword . '%')
-//            ->paginate(5);
-//        $cities = City::all();
-//        return view('customers.list', compact('customers', 'cities'));
+//        $success = "Dữ liệu được xác thực thành công";
+//        return view('houses.index', compact('success'));
 //    }
 }
