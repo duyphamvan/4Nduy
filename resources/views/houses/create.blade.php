@@ -47,6 +47,16 @@
                         <p class="help text-danger">{{ $errors->first('price') }}</p>
 
                     </div>
+
+                    <div class="form-group">
+                        <label>Date From</label>
+                        <input type="date" class="form-control" name="date_from"  required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date To</label>
+                        <input type="date" class="form-control" name="date_to"  required>
+                    </div>
+
                     <div class="form-group row">
                         <label for="exampleFormControlSelect1">Category</label>
                         <select class="form-control" name="category_id">
