@@ -8,7 +8,6 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="name" required value="{{ $user->name }}">
                     <p class="help text-danger">{{ $errors->first('name') }}</p>
-
                 </div>
             </div>
             <div class="form-group row">
@@ -16,7 +15,6 @@
                 <div class="col-sm-10">
                     <input type="email" class="form-control" name="email" disabled value="{{ $user->email  }}">
                     <p class="help text-danger">{{ $errors->first('email') }}</p>
-
                 </div>
             </div>
             <div class="form-group row">
@@ -24,7 +22,6 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="address" required value="{{ $user->address }}">
                     <p class="help text-danger">{{ $errors->first('address') }}</p>
-
                 </div>
             </div>
             <div class="form-group row">
@@ -32,7 +29,6 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="phone" required value="{{ $user->phone }}">
                     <p class="help text-danger">{{ $errors->first('phone') }}</p>
-
                 </div>
             </div>
             <div class="form-group row">
@@ -43,7 +39,6 @@
 
                 </div>
             </div>
-
             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label">Role</label>
                 <div class="col-sm-10">
@@ -78,5 +73,4 @@
             </div>
         </form>
     </div>
-
 @endsection

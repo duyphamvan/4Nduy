@@ -7,7 +7,6 @@
                 <h1>Add New House</h1>
             </div>
             <div class="col-12">
-
                 <form method="post" enctype="multipart/form-data" action="{{ route('house.store') }}">
                     @csrf
                     <div class="form-group row">
@@ -60,16 +59,20 @@
                             <p class="help text-danger">{{ $errors->first('price') }}</p>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label>Date From</label>
-                        <input type="date" class="form-control" name="date_from"  required>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Date From</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" name="date_from"  required>
+                            {{--<p class="help text-danger">{{ $errors->first('price') }}</p>--}}
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Date To</label>
-                        <input type="date" class="form-control" name="date_to"  required>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Date To</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" name="date_to"  required>
+                            {{--<p class="help text-danger">{{ $errors->first('price') }}</p>--}}
+                        </div>
                     </div>
-
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Category</label>
                         <div class="col-sm-10">
