@@ -29,7 +29,7 @@ class CreateHouseRequest extends FormRequest
             'bedroom' => 'required|numeric|min:1',
             'bathroom' => 'required|numeric|min:1',
             'description' => 'required|min:2',
-            'image[]' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image[]' => 'image|mimes:jpeg,png,jpg|max:2048',
             'price' => 'required|numeric|min:1',
         ];
     }
