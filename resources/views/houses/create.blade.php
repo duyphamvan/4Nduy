@@ -7,6 +7,7 @@
                 <h1>Add New House</h1>
             </div>
             <div class="col-12">
+
                 <form method="post" enctype="multipart/form-data" action="{{ route('house.store') }}">
                     @csrf
                     <div class="form-group row">
