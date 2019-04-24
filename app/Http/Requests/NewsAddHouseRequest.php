@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateHouseRequest extends FormRequest
+class NewsAddHouseRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,12 @@ class CreateHouseRequest extends FormRequest
     {
         return [
             'name' => 'required|min:2',
-            'address' => 'required|min:2',
+            'address' => 'required|min:2|max:100',
             'bedroom' => 'required|numeric|min:1',
             'bathroom' => 'required|numeric|min:1',
-            'description' => 'required|min:2',
-            'image[]' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'price' => 'required|numeric|min:1',
+            'image[]'=> 'required',
+            'description' => 'required|min:2|max:100',
+            'price' => 'required|numeric|min:2',
         ];
     }
     public function messages()
@@ -47,15 +47,13 @@ class CreateHouseRequest extends FormRequest
             'bathroom.required' => 'Phải nhập số phòng ngủ',
             'bathroom.numeric' => 'Phòng ngủ phải là số ',
             'bathroom.min' =>  'Nhà phải có ít nhất 1 phòng ngủ ',
+            'image[].required' => 'Nhà phải có ảnh',
             'description.required' => 'Bắt buộc mô tả nhà',
             'description.min' => 'Phải có ít nhất 2 kí tự và nhiều nhất là 100 kí tự',
             'description.max' => 'Phải có ít nhất 1 kí tự và nhiều nhất là 100 kí tự',
-            'image[].image' => 'Định dạng file sai ',
-            'image[].mimes' => 'Định dạng file sai ',
-            'image[].max' => 'Định dạng file quá lớn ',
             'price.required' => 'Phải nhập giá nhà',
-             'price.numeric' => 'Giá nhà phải nhập số ',
-           'price.min' => 'giá phải ít nhất là 2',
+            'price.numeric' => 'Giá nhà phải nhập số ',
+            'price.min' => 'giá phải ít nhất là 2',
         ];
 
     }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\House;
-use App\Http\Requests\CreateCategoryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -26,7 +25,7 @@ class CategoryHousesController extends Controller
         return view('categories.create');
     }
 
-    public function store(CreateCategoryRequest $request){
+    public function store(Request $request){
         $category = new Category();
         $category->name     = $request->input('name');
         if ($request->hasFile('image')) {
