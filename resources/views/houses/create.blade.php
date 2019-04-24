@@ -1,4 +1,3 @@
-
 @extends('admin.admin')
 @section('content')
     <div class="col-md-6 offset-md-3">
@@ -7,47 +6,41 @@
                 <h1>Add New House</h1>
             </div>
             <div class="col-12">
-                <form method="post" enctype="multipart/form-data" action="{{ route('house.store') }}">
+                <form method="post" enctype="multipart/form-data" action="{{route('house.store')}}">
                     @csrf
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label>Name House</label>
-                        <input type="text" class="form-control" name ="name"  placeholder="Enter name" required value="{{ old('name') }}" >
-                        <p class="help text-danger">{{ $errors->first('name') }}</p>
+                        <input type="text" class="form-control" name="name"  placeholder="Enter name" required>
                     </div>
-                    <div class="form-group row">
+
+                    <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-control" name="address"  placeholder="Enter name" required value="{{ old('address') }}" >
-                        <p class="help text-danger">{{ $errors->first('address') }}</p>
+                        <input type="text" class="form-control" name="address"  placeholder="Enter name" required>
                     </div>
-                    <div class="form-group row">
+
+                    <div class="form-group">
                         <label>Bedroom</label>
-                        <input type="number" class="form-control" name="bedroom"  placeholder="Enter name" required value="{{ old('bedroom') }}">
-                        <p class="help text-danger">{{ $errors->first('bedroom') }}</p>
+                        <input type="text" class="form-control" name="bedroom"  placeholder="Enter name" required>
                     </div>
-                    <div class="form-group row">
+
+                    <div class="form-group">
                         <label>Bathroom</label>
-                        <input type="number" class="form-control" name="bathroom"  placeholder="Enter name" required value="{{ old('bathroom') }}">
-                        <p class="help text-danger">{{ $errors->first('bathroom') }}</p>
+                        <input type="text" class="form-control" name="bathroom"  placeholder="Enter name" required>
                     </div>
-                    <div class="form-group row">
+
+                    <div class="form-group">
                         <label>Image</label>
-                        <input type="file" class="form-control" name="image[]"  placeholder="Enter name" >
-                        <p class="help text-danger">{{ $errors->first('image[]') }}</p>
-
+                        <input type="file" class="form-control" name="image[]"  placeholder="Enter name" required multiple>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label>Description</label>
-                        <input type="text" class="form-control" name="description" required value="{{ old('description') }}" >
-                        <p class="help text-danger">{{ $errors->first('description')}}</p>
-
+                        <input type="text" class="form-control" name="description"  required>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label>Price</label>
-                        <input type="number" class="form-control" name="price" required value="{{ old('price') }}" >
-                        <p class="help text-danger">{{ $errors->first('price') }}</p>
-
+                        <input type="text" class="form-control" name="price"  required>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="exampleFormControlSelect1">Category</label>
                         <select class="form-control" name="category_id">
                             @foreach($categories as $category)
@@ -55,6 +48,7 @@
                             @endforeach
                         </select>
                     </div>
+
                     <button type="submit" class="btn btn-outline-primary">Add New</button>
                     <button class="btn btn-outline-info" onclick="window.history.go(-1); return false;">Cancel</button>
                 </form>
