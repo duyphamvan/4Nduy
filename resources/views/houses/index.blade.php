@@ -9,8 +9,12 @@
             <div class="card-header py-3">
                 <h6>List Houses</h6>
             </div>
+
             <div class="card-body">
                 <div class="table-responsive">
+                    <div class="btn ">
+                        <a class="btn btn-primary" href="{{route('house.create')}}">Add New House</a>
+                    </div>
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
@@ -51,13 +55,13 @@
                                            href="{{route('house.edit', $house->id)}}">Edit</a>
                                         <a href="{{route('house.delete',$house->id)}}" class="btn btn-outline-danger"
                                            onclick="return confirm('Bạn chắc chắn muốn xóa?')">Delete</a>
+
                                     </td>
                                 </tr>
                             @endforeach
                         @endif
                         </tbody>
                     </table>
-                    <a class="btn btn-primary" href="{{route('house.create')}}">Add New</a>
 
                 </div>
             </div>
