@@ -1,14 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\CreateUsersRequest;
-use App\Http\Requests\UpdateUsersRequest;
+
+use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\ProfileUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+use App\Requests\DmmRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-
 class UserController extends Controller
 {
     public function index()
@@ -28,12 +31,10 @@ class UserController extends Controller
         if (!$this->userCan('view-admin.admin')) {
 
             abort('403', __('Bạn không có quyền thực hiện thao tác này'));
-
         }
         return view('admin.users.create');
     }
-
-    public function store(CreateUsersRequest $request)
+    public function store(CreateUserRequest $request)
     {
         $user = new User();
         $user->name = $request->name;
@@ -49,11 +50,11 @@ class UserController extends Controller
             $path = $avatar->store('avatar', 'public');
             $user->image = $path;
         }
+
         $user->save();
         Session::flash('success', 'Thêm mới thành công!');
         return redirect()->route('users.index');
     }
-
     public function destroy($id)
     {
         $user = User::findOrFail($id);
@@ -68,7 +69,6 @@ class UserController extends Controller
         Session::flash('success', 'Xóa thành công!');
         return redirect()->route('users.index');
     }
-
     public function update($id)
     {
         $user = User::findOrFail($id);
@@ -81,8 +81,7 @@ class UserController extends Controller
 
         return view('admin.users.update', compact('user'));
     }
-
-    public function edit(UpdateUsersRequest $request, $id)
+    public function edit(UpdateUserRequest $request, $id)
     {
         $user = User::findOrFail($id);
         $idUserLogin = Auth::user()->id;
@@ -94,13 +93,12 @@ class UserController extends Controller
             }
             return redirect()->route('viewhome');
         }
-
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->role = $request->role;
-
         if ($request->hasFile('image')) {
+//            unlink(public_path() . '/storage/' . $user->image);
             $avatar = $request->image;
             $path = $avatar->store('avatar', 'public');
             $user->image = $path;
@@ -114,22 +112,18 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         return view('admin.users.profiles', compact('user'));
     }
-
-
-    public function editProfile (UpdateUsersRequest $request, $id)
+    public function editProfile (UpdateUserRequest $request, $id)
     {
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->address = $request->address;
-
         if ($request->hasFile('image')) {
 //            unlink(public_path() . '/storage/' . $user->image);
             $avatar = $request->image;
             $path = $avatar->store('avatar', 'public');
             $user->image = $path;
         }
-
         $user->save();
         Session::flash('success', 'Cập nhật thành công!');
         return redirect()->route('viewhome', compact('user'));
