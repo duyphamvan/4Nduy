@@ -53,8 +53,11 @@ Route::prefix('admin')->group(function () {
         Route::get('/{id}/delete', 'UserController@destroy')->name('users.destroy');
         Route::get('/{id}/update', 'UserController@update')->name('users.update');
         Route::post('/{id}/update', 'UserController@edit')->name('users.edit');
-        Route::get('/{id}/profile', 'UserController@profiles')->name('users.profiles');
     });
+});
+Route::prefix('/client')->group(function (){
+    Route::get('/{id}/profile', 'UserController@profiles')->name('users.profiles');
+    Route::post('/{id}/update', 'UserController@editProfile')->name('client.users.edit');
 });
 
 // Route search
