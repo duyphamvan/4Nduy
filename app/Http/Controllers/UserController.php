@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-
 class UserController extends Controller
 {
     public function index()
@@ -32,11 +31,9 @@ class UserController extends Controller
         if (!$this->userCan('view-admin.admin')) {
 
             abort('403', __('Bạn không có quyền thực hiện thao tác này'));
-
         }
         return view('admin.users.create');
     }
-
     public function store(CreateUserRequest $request)
     {
         $user = new User();
@@ -58,7 +55,6 @@ class UserController extends Controller
         Session::flash('success', 'Thêm mới thành công!');
         return redirect()->route('users.index');
     }
-
     public function destroy($id)
     {
         $user = User::findOrFail($id);
@@ -73,7 +69,6 @@ class UserController extends Controller
         Session::flash('success', 'Xóa thành công!');
         return redirect()->route('users.index');
     }
-
     public function update($id)
     {
         $user = User::findOrFail($id);
@@ -86,7 +81,6 @@ class UserController extends Controller
 
         return view('admin.users.update', compact('user'));
     }
-
     public function edit(UpdateUserRequest $request, $id)
     {
         $user = User::findOrFail($id);
@@ -99,24 +93,20 @@ class UserController extends Controller
             }
             return redirect()->route('viewhome');
         }
-
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->role = $request->role;
-
         if ($request->hasFile('image')) {
 //            unlink(public_path() . '/storage/' . $user->image);
             $avatar = $request->image;
             $path = $avatar->store('avatar', 'public');
             $user->image = $path;
         }
-
         $user->save();
         Session::flash('success', 'Cập nhật thành công!');
         return redirect()->route('users.index', compact('user'));
     }
-
     public function profiles($id)
     {
         $user = User::findOrFail($id);
@@ -128,14 +118,12 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->address = $request->address;
-
         if ($request->hasFile('image')) {
 //            unlink(public_path() . '/storage/' . $user->image);
             $avatar = $request->image;
             $path = $avatar->store('avatar', 'public');
             $user->image = $path;
         }
-
         $user->save();
         Session::flash('success', 'Cập nhật thành công!');
         return redirect()->route('viewhome', compact('user'));

@@ -38,8 +38,6 @@ Route::post('/store-house','HouseController@store')->name('house.store');
 Route::get('{id}/edit-house','HouseController@edit')->name('house.edit');
 Route::post('{id}/update-house','HouseController@update')->name('house.update');
 Route::get('{id}/delete-house', 'HouseController@destroy')->name('house.delete');
-
-
 //Route profile
 Route::get('/admin', 'HomeController@showPageAdmin')->name('admin.admin');
 Route::prefix('admin')->group(function () {
@@ -61,6 +59,5 @@ Route::prefix('/client')->group(function (){
     Route::get('/{id}/profile', 'UserController@profiles')->name('users.profiles');
     Route::post('/{id}/update', 'UserController@editProfile')->name('client.users.edit');
 });
-
 // Route search
 Route::get('/search', 'HomeController@search')->name('search');
