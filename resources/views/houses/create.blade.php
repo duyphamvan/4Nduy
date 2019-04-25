@@ -1,4 +1,3 @@
-
 @extends('admin.admin')
 @section('content')
     <div class="col-md-6 offset-md-3">

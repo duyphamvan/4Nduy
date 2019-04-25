@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
-
     public function index()
     {
         $categories = Category::all();
@@ -100,8 +95,6 @@ class HomeController extends Controller
                 $to = 20000;
                 break;
         }
-
-
         $houses = House::where('address', 'LIKE', '%' . $address . '%')
             ->where('date_from', '>=', $date_from)
             ->where('date_to', '<=', $date_to)
@@ -124,57 +117,15 @@ class HomeController extends Controller
 
     }
 
-//    public function showPageGuest()
-//
-//    {
-//
-//        if (!$this->userCan('view-home.viewhome')) {
-//
-//            abort('403', __('Bạn không có quyền thực hiện thao tác này'));
-//
-//        }
-//
-//        return view("home.viewhome");
-//
-//    }
-
     public function showPageAdmin()
 
     {
-
         if (!$this->userCan('view-admin.admin')) {
 
             abort('403', __('Bạn không có quyền thực hiện thao tác này'));
 
         }
-
         return view("admin.admin");
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    public function  profile(){
-//        $user = Auth::user();
-//       // dd($user);
-//        return view('home.profile', compact('user'));
-//    }
-
 
