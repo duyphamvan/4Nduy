@@ -13,12 +13,23 @@ class UserController extends Controller
 {
     public function index()
     {
+        if (!$this->userCan('view-admin.admin')) {
+
+            abort('403', __('Bạn không có quyền thực hiện thao tác này'));
+
+        }
+
         $users = User::orderBy('id', 'DESC')->get();
         return view('admin.users.index', compact('users'));
     }
 
     public function create()
     {
+        if (!$this->userCan('view-admin.admin')) {
+
+            abort('403', __('Bạn không có quyền thực hiện thao tác này'));
+
+        }
         return view('admin.users.create');
     }
 
@@ -77,6 +88,10 @@ class UserController extends Controller
         $idUserLogin = Auth::user()->id;
         if ($user->id == 1 || $user->id == $idUserLogin) {
             Session::flash('error', 'Không thể cập nhật thông tin tài khoản này!');
+            if ($user->id != $request->id) {
+                Session::flash('error', 'Khong duoc phep cap nhat');
+                return redirect()->route('viewhome');
+            }
             return redirect()->route('viewhome');
         }
 
@@ -92,11 +107,25 @@ class UserController extends Controller
         }
         $user->save();
         Session::flash('success', 'Cập nhật thành công!');
-        return redirect()->route('users.index');
+        return redirect()->route('users.index', compact('user'));
     }
-    public function profiles(Request $request, $id)
+
+    public function editProfile (UpdateUsersRequest $request, $id)
     {
         $user = User::findOrFail($id);
-        return view('admin.users.profile', compact('user'));
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+
+        if ($request->hasFile('image')) {
+//            unlink(public_path() . '/storage/' . $user->image);
+            $avatar = $request->image;
+            $path = $avatar->store('avatar', 'public');
+            $user->image = $path;
+        }
+
+        $user->save();
+        Session::flash('success', 'Cập nhật thành công!');
+        return redirect()->route('viewhome', compact('user'));
     }
 }

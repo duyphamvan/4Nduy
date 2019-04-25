@@ -1,11 +1,7 @@
-@extends('admin.admin')
-@section('content')
-    <div class="col-md-6 offset-md-3">
-        <div class="row">
-            <div class="col-12">
-                <h1>Add New Users</h1>
-            </div>
-            <div class="col-12">
+
+    <h2><center> Create User </center></h2>
+
+    <div class="col-12 col-md-12">
         <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group row">
@@ -76,4 +72,3 @@
         </form>
     </div>
 
-@endsection
