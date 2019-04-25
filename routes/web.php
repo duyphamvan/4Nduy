@@ -56,6 +56,11 @@ Route::prefix('admin')->group(function () {
         Route::get('/{id}/profile', 'UserController@profiles')->name('users.profiles');
     });
 });
+//Route profile
+Route::prefix('/client')->group(function (){
+    Route::get('/{id}/profile', 'UserController@profiles')->name('users.profiles');
+    Route::post('/{id}/update', 'UserController@editProfile')->name('client.users.edit');
+});
 
 // Route search
 Route::get('/search', 'HomeController@search')->name('search');
