@@ -17,17 +17,14 @@
                         <label>Address</label>
                         <input type="text" class="form-control" name="address"  placeholder="Enter name" required>
                     </div>
-
                     <div class="form-group">
                         <label>Bedroom</label>
                         <input type="text" class="form-control" name="bedroom"  placeholder="Enter name" required>
                     </div>
-
                     <div class="form-group">
                         <label>Bathroom</label>
                         <input type="text" class="form-control" name="bathroom"  placeholder="Enter name" required>
                     </div>
-
                     <div class="form-group">
                         <label>Image</label>
                         <input type="file" class="form-control" name="image[]"  placeholder="Enter name" required multiple>
@@ -40,7 +37,20 @@
                         <label>Price</label>
                         <input type="text" class="form-control" name="price"  required>
                     </div>
+
                     <div class="form-group">
+
+
+                    <div class="form-group">
+                        <label>Date From</label>
+                        <input type="date" class="form-control" name="date_from"  required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date To</label>
+                        <input type="date" class="form-control" name="date_to"  required>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="exampleFormControlSelect1">Category</label>
                         <select class="form-control" name="category_id">
                             @foreach($categories as $category)
@@ -51,6 +61,7 @@
 
                     <button type="submit" class="btn btn-outline-primary">Add New</button>
                     <button class="btn btn-outline-info" onclick="window.history.go(-1); return false;">Cancel</button>
+                    </div>
                 </form>
             </div>
         </div>

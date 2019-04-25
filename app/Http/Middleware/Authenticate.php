@@ -2,7 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use Closure;
+use http\Env\Request;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Contracts\Auth\Factory as Auth;
 
 class Authenticate extends Middleware
 {
@@ -18,4 +21,12 @@ class Authenticate extends Middleware
             return route('login');
         }
     }
+//    public function handle($request, Closure $next, $guard = null)
+//    {
+//        if (\Illuminate\Support\Facades\Auth::guard($guard)->check()) {
+//            return redirect('/admin');
+//        }
+//
+//        return $next($request);
+//    }
 }
