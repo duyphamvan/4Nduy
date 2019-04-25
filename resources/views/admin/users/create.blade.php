@@ -1,7 +1,5 @@
 @extends('admin.admin')
 @section('content')
-    <h2><center> Create User </center></h2>
-
     <div class="col-12 col-md-12">
         <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
             @if ($errors->any())

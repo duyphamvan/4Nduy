@@ -1,7 +1,7 @@
-
-    <h2><center>User Information</center></h2>
+@extends('layouts.app')
+@section('content')
     <div class="col-12 col-md-12">
-        <form method="post" action="{{route('client.users.edit', $user->id)}}" enctype="multipart/form-data">
+        <form method="post" action="{{route('users.update', $user->id)}}" enctype="multipart/form-data">
             @csrf
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -57,4 +57,4 @@
         </form>
     </div>
 
-
+@endsection
