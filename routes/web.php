@@ -40,12 +40,14 @@ Route::post('{id}/update-house','HouseController@update')->name('house.update');
 Route::get('{id}/delete-house', 'HouseController@destroy')->name('house.delete');
 
 
-//Route profile
+//Route profile admin
 Route::get('/admin', 'HomeController@showPageAdmin')->name('admin.admin');
 Route::prefix('admin')->group(function () {
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('/login', 'Auth\LoginController@login');
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+  //Route profile users
     Route::prefix('/users')->group(function () {
         Route::get('/', 'UserController@index')->name('users.index');
         Route::get('/create', 'UserController@create')->name('users.create');

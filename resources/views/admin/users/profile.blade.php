@@ -12,7 +12,6 @@
                     </ul>
                 </div>
             @endif
-
             <div class="container">
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
@@ -45,9 +44,7 @@
                         <img src="{{asset("storage/$user->image")}}" alt="" width="200px" height="150px">
                     </div>
                 </div>
-
             </div>
-
             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
@@ -56,5 +53,4 @@
             </div>
         </form>
     </div>
-
 @endsection

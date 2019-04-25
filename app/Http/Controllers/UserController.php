@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\CreateUsersRequest;
-use App\Http\Requests\ProfileUserRequest;
-use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UpdateUsersRequest;
-use App\Requests\DmmRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -93,7 +89,6 @@ class UserController extends Controller
         $user->role = $request->role;
 
         if ($request->hasFile('image')) {
-//            unlink(public_path() . '/storage/' . $user->image);
             $avatar = $request->image;
             $path = $avatar->store('avatar', 'public');
             $user->image = $path;
