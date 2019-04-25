@@ -6,8 +6,9 @@
                 <h1>Add New House</h1>
             </div>
             <div class="col-12">
-                <form method="post" enctype="multipart/form-data" action="{{ route('house.store') }}">
+                <form method="post" enctype="multipart/form-data" action="{{route('house.store')}}">
                     @csrf
+<<<<<<< HEAD
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Name House</label>
                         <div class="col-sm-10">
@@ -64,6 +65,44 @@
                             <input type="date" class="form-control" name="date_from"  required>
                             {{--<p class="help text-danger">{{ $errors->first('price') }}</p>--}}
                         </div>
+=======
+                    <div class="form-group">
+                        <label>Name House</label>
+                        <input type="text" class="form-control" name="name"  placeholder="Enter name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" name="address"  placeholder="Enter name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Bedroom</label>
+                        <input type="text" class="form-control" name="bedroom"  placeholder="Enter name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Bathroom</label>
+                        <input type="text" class="form-control" name="bathroom"  placeholder="Enter name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="file" class="form-control" name="image[]"  placeholder="Enter name" required multiple>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" class="form-control" name="description"  required>
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="text" class="form-control" name="price"  required>
+                    </div>
+
+                    <div class="form-group">
+
+
+                    <div class="form-group">
+                        <label>Date From</label>
+                        <input type="date" class="form-control" name="date_from"  required>
+>>>>>>> b0e5aeaa021087824e0f3c214ad8d17984bbbbb6
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Date To</label>
@@ -82,8 +121,10 @@
                             </select>
                         </div>
                     </div>
+
                     <button type="submit" class="btn btn-outline-primary">Add New</button>
                     <button class="btn btn-outline-info" onclick="window.history.go(-1); return false;">Cancel</button>
+                    </div>
                 </form>
             </div>
         </div>
