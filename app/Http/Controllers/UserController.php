@@ -1,13 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\CreateUsersRequest;
 use App\Http\Requests\UpdateUsersRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -40,7 +38,6 @@ class UserController extends Controller
             $path = $avatar->store('avatar', 'public');
             $user->image = $path;
         }
-
         $user->save();
         Session::flash('success', 'Thêm mới thành công!');
         return redirect()->route('users.index');
@@ -93,12 +90,10 @@ class UserController extends Controller
             $path = $avatar->store('avatar', 'public');
             $user->image = $path;
         }
-
         $user->save();
         Session::flash('success', 'Cập nhật thành công!');
         return redirect()->route('users.index');
     }
-
     public function profiles(Request $request, $id)
     {
         $user = User::findOrFail($id);

@@ -11,14 +11,14 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label"> Category</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name"  placeholder="Enter name" >
+                            <input type="text" class="form-control" name="name"  placeholder="Enter Categoty" >
                             <p class="help text-danger">{{ $errors->first('name') }}</p>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-10">
-                            <input type="file" class="form-control" name="image"  >
+                            <input type="file" class="form-control-file" name="image"  >
                             <p class="help text-danger">{{ $errors->first('image ') }}</p>
                         </div>
                     </div>
