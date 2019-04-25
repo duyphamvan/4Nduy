@@ -109,6 +109,12 @@ class UserController extends Controller
         Session::flash('success', 'Cập nhật thành công!');
         return redirect()->route('users.index', compact('user'));
     }
+    public function profiles($id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.users.profiles', compact('user'));
+    }
+
 
     public function editProfile (UpdateUsersRequest $request, $id)
     {
