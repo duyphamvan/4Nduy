@@ -1,24 +1,5 @@
-<<<<<<< HEAD
 
 <h2><center> Create User </center></h2>
-=======
-@extends('admin.admin')
-@section('content')
-    <h2><center> Create User </center></h2>
-
-    <div class="col-12 col-md-12">
-        <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
->>>>>>> a4b2f69c67dd5febbb35e773cae0d59333c02e08
-
 <div class="col-12 col-md-12">
     <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
         @csrf

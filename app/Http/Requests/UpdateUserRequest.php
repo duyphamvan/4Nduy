@@ -39,5 +39,6 @@ class UpdateUserRequest extends FormRequest
             'email.unique'  => 'Email đã tồn tại.',
             'phone.required'  => 'Số điện thoại không được để trống.',
         ];
+
     }
 }
