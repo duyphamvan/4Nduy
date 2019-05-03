@@ -176,9 +176,12 @@
                                     <div class="hls_sol_data">
                                         <h3>{{$house->name}}</h3>
                                         <div class="hls_data">
-                                            <p href="#" class="hls_title">{{$house->description}}</p>
+                                            <p href="#" class="hls_title">{{$house->address}}</p>
                                             <p href="#" class="btn btn-pro">
                                                 {{$house->price}}$</p>
+                                            <div>
+                                                <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-show-caption="false" data-step="0.1" value="{{$house->averageRating }}" data-size="xs" disabled="">
+                                            </div>
                                         </div>
                                     </div>
 
@@ -190,5 +193,9 @@
             </div>
         @endif
     </div>
+    @include('home.services')
+    <script type="text/javascript">
+        $("#input-id").rating();
+    </script>
 @endsection
 

@@ -1,4 +1,4 @@
-<div class="menu">
+<div class="menu " style="background-color: #4c4c4c; height: 75px">
     <div class="container">
         <div class="row icon">
             <div class="col-sm-6 iconleft pl-0">
@@ -36,16 +36,16 @@
                         @if (Route::has('login'))
                             @auth
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('viewhome') }}">Home</a>
+                                    <a class="nav-link" href="{{ url('/viewhome') }}">Home</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name}}
-{{--                                        <span class="caret"></span>--}}
+                                        {{ Auth::user()->name }}
+                                        {{--                                        <span class="caret"></span>--}}
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right logout bg-dark text-white" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu dropdown-menu-right logout" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -53,12 +53,6 @@
                                         </a>
                                         <a class="dropdown-item" href="{{ route('showchangepassword') }}">
                                             Change Password
-                                        </a>
-                                        <a class="dropdown-item" href="{{ route('users.profiles',Auth::user()->id) }}">
-                                            Profile
-                                        </a>
-                                        <a class="dropdown-item" href="{{ route('admin.admin') }}">
-                                            Managerment
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                               style="display: none;">
@@ -86,50 +80,6 @@
             </div>
         </div>
 
-
-        <div class="row">
-            <div class="col-sm-12 contentmenu">
-
-                <nav class="navbar navbar-expand-lg pl-0 pr-0 ">
-                    <a class="navbar-brand travel" href="#"><i class="fas fa-plane"></i> <span> Travel </span>Tour</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse justify-content-end  menudown" >
-                        <ul class="navbar-nav">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Home</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Pages</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Tour List</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Destinations</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Date & Pricing</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Tour System</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Blog</a>
-                            </li>
-
-                            <li class="nav-item search">
-                                <i class="fas fa-search"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
     </div>
 
 </div>

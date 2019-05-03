@@ -46,7 +46,7 @@
                                     <td>{{ $house->category->name}}</td>
                                     <td>{{ $house->bedroom }}</td>
                                     <td>{{ $house->bathroom }}</td>
-                                    <td>{{ $house->description }}</td>
+                                    <td>{{substr($house->description,1,50)}}</td>
                                     <td>{{ $house->price }}</td>
                                     <td>
                                        {{count($house->images)}}

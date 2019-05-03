@@ -78,7 +78,7 @@
 
         .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over {
             pointer-events: none;
-            background: #ccc;
+            background: #3d80cc;
         }
         .MultiCarousel .MultiCarousel-inner .item .link > div:hover .bg {
             opacity: 1;

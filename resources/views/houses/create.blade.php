@@ -48,13 +48,9 @@
                             <p class="help text-danger">{{ $errors->first('image[]') }}</p>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Description</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="description" placeholder="Enter Description"
-                                   required value="{{ old('description') }}">
-                            <p class="help text-danger">{{ $errors->first('description')}}</p>
-                        </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea type="text" class="form-control" name="description"  required></textarea>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Price</label>
