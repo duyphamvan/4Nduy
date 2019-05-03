@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input value="{{$house->description}}" type="text" class="form-control" name="description"  required>
+                        <textarea value="{{$house->description}}" type="text" class="form-control" name="description"  required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Price</label>

@@ -28,6 +28,7 @@ Route::get('/admin', 'HomeController@showPageAdmin');
 Route::get('/profile','HomeController@profile')->name('profile');
 Route::get('/categories/{id}', 'HomeController@filterByCategory')->name('filter');
 Route::get('/house/{id}', 'HomeController@showHouse')->name('show');
+Route::post('/house/rate', 'HomeController@rateHouse')->name('rate');
 Route::get('/search', 'HomeController@search')->name('search');
 
 //Route categories
@@ -47,6 +48,9 @@ Route::get('{id}/edit-house','HouseController@edit')->name('house.edit');
 Route::post('{id}/update-house','HouseController@update')->name('house.update');
 Route::get('{id}/delete-house', 'HouseController@destroy')->name('house.delete');
 
+//Route comment
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');
+Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 
 
 

@@ -19,7 +19,7 @@
                        placeholder="Where do you want to go ?" type="text" class=" form-control blockdate"
                        id="validationTooltip03"
                        required>
-                <span class="text-danger mb-0">{{$errors->first('address')}}</span>
+                <span class="text-danger mb-0 small">{{$errors->first('address')}}</span>
 
             </div>
             <div class="col-md-5 pl-0 pr-0 ">
@@ -30,10 +30,10 @@
                 </div>
                 <div class="col-sm-12">
                     <div class="col-sm-6 pl-0">
-                        <span class="text-danger mb-0">{{$errors->first('date_from')}}</span>
+                        <span class="text-danger mb-0 small">{{$errors->first('date_from')}}</span>
                     </div>
                     <div class="col-sm-6 pl-5">
-                        <span class="text-danger mb-0">{{$errors->first('date_to')}}</span>
+                        <span class="text-danger mb-0 small">{{$errors->first('date_to')}}</span>
                     </div>
                 </div>
             </div>
@@ -80,11 +80,9 @@
     </form>
 </div>
 <script type="text/javascript">
-
     $('.input-daterange input').each(function () {
         $(this).datepicker('clearDates');
     });
-
 </script>
 </body>
 </html>

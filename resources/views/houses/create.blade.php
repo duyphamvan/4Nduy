@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input type="text" class="form-control" name="description"  required>
+                        <textarea type="text" class="form-control" name="description"  required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Price</label>
