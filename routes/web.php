@@ -38,6 +38,8 @@ Route::post('/store-house','HouseController@store')->name('house.store');
 Route::get('{id}/edit-house','HouseController@edit')->name('house.edit');
 Route::post('{id}/update-house','HouseController@update')->name('house.update');
 Route::get('{id}/delete-house', 'HouseController@destroy')->name('house.delete');
+
+
 //Route profile
 Route::get('/admin', 'HomeController@showPageAdmin')->name('admin.admin');
 Route::prefix('admin')->group(function () {
@@ -51,13 +53,21 @@ Route::prefix('admin')->group(function () {
         Route::get('/{id}/delete', 'UserController@destroy')->name('users.destroy');
         Route::get('/{id}/update', 'UserController@update')->name('users.update');
         Route::post('/{id}/update', 'UserController@edit')->name('users.edit');
-        Route::get('/{id}/profile', 'UserController@profiles')->name('users.profiles');
     });
 });
-//Route profile
 Route::prefix('/client')->group(function (){
     Route::get('/{id}/profile', 'UserController@profiles')->name('users.profiles');
     Route::post('/{id}/update', 'UserController@editProfile')->name('client.users.edit');
+
 });
+
 // Route search
 Route::get('/search', 'HomeController@search')->name('search');
+///
+/// Route booking
+
+Route::prefix('/booking')->group(function (){
+    Route::get('/', 'BookingsController@index')->name('booking.index');
+    Route::get('/create', 'BookingsController@create')->name('booking.create');
+    Route::post('/store-booking','BookingsController@store')->name('booking.store');
+});

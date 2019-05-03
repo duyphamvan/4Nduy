@@ -86,6 +86,23 @@
             </div>
         </li>
 
+        <!--Booking-->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBook" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Bookings</span>
+            </a>
+            <div id="collapseBook" class="collapseBook" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Category</h6>
+                    <a class="collapse-item" href="{{route('booking.index')}}">View Booking</a>
+                    <a class="collapse-item" href="#">Cancer Booking</a>
+
+                </div>
+            </div>
+        </li>
+
+
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

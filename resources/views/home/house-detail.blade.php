@@ -153,7 +153,7 @@
                         or for medicine. Instead, bonsai practice focuses on long-term cultivation and shaping of one or
                         more small trees growing in a container.</p>
                 </div>
-                <button class="add-to-cart">Booking</button>
+                <button class="add-to-cart" href="{{route('booking.create')}}">Booking</button>
             </div>
         </div>
     </div>
