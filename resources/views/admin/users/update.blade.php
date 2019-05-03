@@ -36,7 +36,6 @@
                 <div class="col-sm-10">
                     <input type="file" class="form-control-file" name="image">
                     <p class="help text-danger">{{ $errors->first('image') }}</p>
-
                 </div>
             </div>
             <div class="form-group row">
