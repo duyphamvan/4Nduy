@@ -10,30 +10,22 @@
                     @csrf
                     <div class="form-group">
                         <label>Name House</label>
-
                         <input value="{{$house->name}}" type="text" class="form-control" name="name"  placeholder="Enter name"  >
                         <p class="help text-danger">{{ $errors->first('name') }}</p>
-
-                        <input value="{{$house->name}}" type="text" class="form-control" name="name"  placeholder="Enter name" required>
                     </div>
 
                     <div class="form-group">
                         <label>Address</label>
-
                         <input value="{{$house->address}}" type="text" class="form-control" name="address"  placeholder="Enter name" >
                         <p class="help text-danger">{{ $errors->first('address') }}</p>
 
-               <input value="{{$house->address}}" type="text" class="form-control" name="address"  placeholder="Enter name" required>
                     </div>
 
                     <div class="form-group">
                         <label>Bedroom</label>
-
                         <input   value="{{$house->bedroom}}" type="text" class="form-control" name="bedroom"  placeholder="Enter name" >
                         <p class="help text-danger">{{ $errors->first('bedroom') }}</p>
 
-
-                        <input   value="{{$house->bedroom}}" type="text" class="form-control" name="bedroom"  placeholder="Enter name" required>
                     </div>
 
                     <div class="form-group">
@@ -41,8 +33,6 @@
                         <input  value="{{$house->bathroom}}" type="text" class="form-control" name="bathroom"  placeholder="Enter name" >
                         <p class="help text-danger">{{ $errors->first('bathroom') }}</p>
 
-
-                        <input  value="{{$house->bathroom}}" type="text" class="form-control" name="bathroom"  placeholder="Enter name" required>
                     </div>
 
                     <div class="form-group">
@@ -52,7 +42,6 @@
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-
                         <input value="{{$house->description}}" type="text" class="form-control" name="description" >
                         <p class="help text-danger">{{ $errors->first('description') }}</p>
 
@@ -62,12 +51,6 @@
                         <input value="{{$house->price}}" type="text" class="form-control" name="price"  >
                         <p class="help text-danger">{{ $errors->first('price') }}</p>
 
-
-                        <input value="{{$house->description}}" type="text" class="form-control" name="description"  required>
-                    </div>
-                    <div class="form-group">
-                        <label>Price</label>
-                        <input value="{{$house->price}}" type="text" class="form-control" name="price"  required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Category</label>

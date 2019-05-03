@@ -45,7 +45,7 @@
 {{--                                        <span class="caret"></span>--}}
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right logout" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu dropdown-menu-right logout bg-dark text-white" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -58,7 +58,7 @@
                                             Profile
                                         </a>
                                         <a class="dropdown-item" href="{{ route('admin.admin') }}">
-                                            Managerment User
+                                            Managerment
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                               style="display: none;">

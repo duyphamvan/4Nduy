@@ -8,18 +8,19 @@
             <div class="col-12">
                 <form method="post" enctype="multipart/form-data" action="{{route('house.store')}}">
                     @csrf
-
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Name House</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name ="name"  placeholder="Enter name House " required value="{{ old('name') }}" >
+                            <input type="text" class="form-control" name="name" placeholder="Enter name House " required
+                                   value="{{ old('name') }}">
                             <p class="help text-danger">{{ $errors->first('name') }}</p>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Address</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="address"  placeholder="Enter Address" required value="{{ old('address') }}" >
+                            <input type="text" class="form-control" name="address" placeholder="Enter Address" required
+                                   value="{{ old('address') }}">
                             <p class="help text-danger">{{ $errors->first('address') }}</p>
                         </div>
                     </div>
@@ -27,50 +28,53 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Bedroom</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" name="bedroom"  placeholder="Enter Bedroom Numbers" required value="{{ old('bedroom') }}">
+                            <input type="number" class="form-control" name="bedroom" placeholder="Enter Bedroom Numbers"
+                                   required value="{{ old('bedroom') }}">
                             <p class="help text-danger">{{ $errors->first('bedroom') }}</p>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Bathroom</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" name="bathroom"  placeholder="Enter Bathroom Numbers" required value="{{ old('bathroom') }}">
+                            <input type="number" class="form-control" name="bathroom"
+                                   placeholder="Enter Bathroom Numbers" required value="{{ old('bathroom') }}">
                             <p class="help text-danger">{{ $errors->first('bathroom') }}</p>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-10">
-                            <input type="file" class="form-control-file" name="image[]"   >
+                            <input type="file" class="form-control-file" name="image[]">
                             <p class="help text-danger">{{ $errors->first('image[]') }}</p>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Description</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="description" placeholder="Enter Description" required value="{{ old('description') }}" >
+                            <input type="text" class="form-control" name="description" placeholder="Enter Description"
+                                   required value="{{ old('description') }}">
                             <p class="help text-danger">{{ $errors->first('description')}}</p>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Price</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" name="price" placeholder="Enter Price" required value="{{ old('price') }}" >
+                            <input type="number" class="form-control" name="price" placeholder="Enter Price" required
+                                   value="{{ old('price') }}">
                             <p class="help text-danger">{{ $errors->first('price') }}</p>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Date From</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" name="date_from"  required>
+                            <input type="date" class="form-control" name="date_from" required>
                             {{--<p class="help text-danger">{{ $errors->first('price') }}</p>--}}
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Date To</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" name="date_to"  required>
-                            {{--<p class="help text-danger">{{ $errors->first('price') }}</p>--}}
+                            <input type="date" class="form-control" name="date_to" required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -83,12 +87,11 @@
                             </select>
                         </div>
                     </div>
-
                     <button type="submit" class="btn btn-outline-primary">Add New</button>
                     <button class="btn btn-outline-info" onclick="window.history.go(-1); return false;">Cancel</button>
-                    </div>
                 </form>
             </div>
         </div>
+    </div>
     </div>
 @endsection

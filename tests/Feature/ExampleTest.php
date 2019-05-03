@@ -14,7 +14,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('http://127.0.0.1:8000/login');
+        $response = $this->get('/');
 
         $response->assertStatus(200);
     }
