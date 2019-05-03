@@ -24,12 +24,10 @@ Route::get('/admin', 'HomeController@showPageAdmin');
 Route::get('/profile','HomeController@profile')->name('profile');
 Route::get('/categories/{id}', 'HomeController@filterByCategory')->name('filter');
 Route::get('/house/{id}', 'HomeController@showHouse')->name('show');
-<<<<<<< HEAD
-=======
+
 Route::post('/house/rate', 'HomeController@rateHouse')->name('rate');
 Route::get('/search', 'HomeController@search')->name('search');
 
->>>>>>> 450010ee14a727e44f34c70f7ea402269bd1b730
 //Route categories
 Route::get('/list-categories','CategoryHousesController@index')->name('category.index');
 Route::get('/create-category','CategoryHousesController@create')->name('category.create');
