@@ -4,11 +4,9 @@
             <div class="col-sm-6 iconleft pl-0">
                 <nav class="navbar navbar-expand-lg pl-0 justify-content-start ">
                     <ul class="navbar-nav">
+
                         <li class="nav-item">
-                            <a class="nav-link" href="#"> <i class="fas fa-phone "> 1.820.3345.33</i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="far fa-envelope"> Contact@TravelTourWP.com</i></a>
+                            <a class="nav-link" href="#"><i class="far fa-envelope"> 4N@Codegym.com</i></a>
                         </li>
                     </ul>
                 </nav>
@@ -18,19 +16,10 @@
                 <nav class="navbar navbar-expand-lg pr-0 justify-content-end ">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="nav-link" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fab fa-flickr"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fab fa-google-plus-g"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"> <i class="fab fa-flickr"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="nav-link" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                         </li>
 
                         @if (Route::has('login'))
