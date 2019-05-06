@@ -299,15 +299,15 @@
                 <hr>
 
 
-                    <div class="review-box clearfix">
-                        <div class="col-sm-10">
-                            <div class="rev-content">
-                                <div class="rev-info">
-                                    @include('home.replies', ['comments' => $houseDetail    ->comments, 'post_id' => $houseDetail->id])
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="review-box clearfix">--}}
+{{--                        <div class="col-sm-10">--}}
+{{--                            <div class="rev-content">--}}
+{{--                                <div class="rev-info">--}}
+{{--                                    @include('home.replies', ['comments' => $houseDetail->comments, 'post_id' => $houseDetail->id])--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                 <!-- /review-container -->
             </section>
