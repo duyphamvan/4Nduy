@@ -37,7 +37,7 @@
                     <label>Email : </label>
                     <div class="form-text">
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <input type="email" name="email" placeholder="" required="" value="{{ $user->email }}">
+                        <input type="email" name="email" placeholder="" required="" value="{{ $user->email }}" >
                     </div>
                 </div>
                 <div class="phone">
