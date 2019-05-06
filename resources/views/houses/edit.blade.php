@@ -10,49 +10,49 @@
                     @csrf
                     <div class="form-group">
                         <label>Name House</label>
-                        <input value="{{$house->name}}" type="text" class="form-control" name="name"  placeholder="Enter name" required>
+                        <input value="{{$house->name}}" type="text" class="form-control" name="name"  placeholder="Enter name"  >
+                        <p class="help text-danger">{{ $errors->first('name') }}</p>
                     </div>
 
                     <div class="form-group">
                         <label>Address</label>
-                        <input value="{{$house->address}}" type="text" class="form-control" name="address"  placeholder="Enter name" required>
+                        <input value="{{$house->address}}" type="text" class="form-control" name="address"  placeholder="Enter name" >
+                        <p class="help text-danger">{{ $errors->first('address') }}</p>
+
                     </div>
 
                     <div class="form-group">
                         <label>Bedroom</label>
-                        <input   value="{{$house->bedroom}}" type="text" class="form-control" name="bedroom"  placeholder="Enter name" required>
+                        <input   value="{{$house->bedroom}}" type="text" class="form-control" name="bedroom"  placeholder="Enter name" >
+                        <p class="help text-danger">{{ $errors->first('bedroom') }}</p>
+
                     </div>
 
                     <div class="form-group">
                         <label>Bathroom</label>
-                        <input  value="{{$house->bathroom}}" type="text" class="form-control" name="bathroom"  placeholder="Enter name" required>
+                        <input  value="{{$house->bathroom}}" type="text" class="form-control" name="bathroom"  placeholder="Enter name" >
+                        <p class="help text-danger">{{ $errors->first('bathroom') }}</p>
+
                     </div>
 
                     <div class="form-group">
                         <label>Image</label>
-                        <input value="{{$house->images}}" type="file" class="form-control" name="image[]" multiple  placeholder="Enter name">
+                        <input value="{{$house->images}}" type="file" class="form-control" name="images"  placeholder="Enter name">
                         <img src="{{asset("storage/$house->images")}}" alt="" width="200px" height="150px">
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input value="{{$house->description}}" type="text" class="form-control" name="description"  required>
+                            <textarea value="{{$house->description}}" type="text" class="form-control" name="description"  required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Price</label>
-                        <input value="{{$house->price}}" type="text" class="form-control" name="price" >
+                        <input value="{{$house->price}}" type="text" class="form-control" name="price"  >
+                        <p class="help text-danger">{{ $errors->first('price') }}</p>
+
                     </div>
                     <div class="form-group">
-                        <label>Date From</label>
-{{--                        {{dd($house->date_from)}}--}}
-                        <input value="{{$house->date_from}}" type="date" class="form-control" name="date_from" >
-                    </div>
-                    <div class="form-group">
-                        <label>Date To</label>
-                        <input value="{{$house->date_to}}" type="date" class="form-control" name="date_to" >
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Edit Category: {{ $category->name }}</label>
-                        <select  class="form-control" name="category_id" required>
+                        <label for="exampleFormControlSelect1">Category</label>
+                        <select  class="form-control" name="category_id">
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach

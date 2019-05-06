@@ -21,7 +21,7 @@ class CreateHousesTable extends Migration
             $table->string('bedroom');
             $table->string('bathroom');
 //            $table->string('images');
-            $table->string('description');
+            $table->text('description');
             $table->string('price');
             $table->foreign('category_id')->references('id')->on('categories');
 

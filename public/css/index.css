@@ -3,7 +3,42 @@
     padding: 0px;
     font-family: 'Poppins', sans-serif;
 }
+.booking{
+    transition: 1s;
+    opacity: 0;
+    visibility: hidden;
+}
+i.glyphicon.glyphicon-star {
+    color: #ff7626c7;
+}
+.col-sm-5.desc {
+    top: 140px;
+    border: 1px solid #e4e4e4;
+    height: 500px;
+    position: fixed;
+    right: 120px;
+    width: 390px;
+    z-index: 10;
+}
+.rating-xs {
+    font-size: 20px !important;
+}
+.rating-container .filled-stars{
+    -webkit-text-stroke-color: #ffffff00 !important;
+}
 
+button.btn.btn-success.rate {
+    background-color: #3e3e3f!important;
+    border: none;
+}
+span.label {
+    padding: 0px;
+    width: 89px;
+    height: 30px;
+    display: block;
+    line-height: 30px;
+    background-color: #00BCD4;
+}
 p.card-text.description {
     height: 40px;
     overflow: hidden;
@@ -116,6 +151,14 @@ a.navbar-brand.travel {
 .col-sm-6.text-right.iconright a {
     font-size: 16px;
     color: #529afa;
+}
+
+.col-sm-6.text-right.iconright a.dropdown-item {
+    color: white;
+}
+
+.col-sm-6.text-right.iconright:hover a.dropdown-item {
+    color: black;
 }
 
 

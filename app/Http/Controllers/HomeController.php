@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
-
     public function index()
     {
         $categories = Category::all();
@@ -40,6 +35,23 @@ class HomeController extends Controller
         return view('home.house-detail', compact('houseDetail', 'houses'));
     }
 
+    public function rateHouse(Request $request)
+
+    {
+        if (Auth::check()) {
+            request()->validate(['rate' => 'required']);
+
+            $house = House::find($request->id);
+            $rating = new \willvincent\Rateable\Rating;
+            $rating->rating = $request->rate;
+            $rating->user_id = auth()->user()->id;
+            $house->ratings()->save($rating);
+//            return redirect()->route("viewhome");
+            return back();
+        }
+        return redirect()->route("login");
+
+    }
 
     public function showChangePasswordForm()
     {
@@ -74,7 +86,9 @@ class HomeController extends Controller
         $address = $request->input('address');
         $date_from = date('Y-m-d', strtotime($request->input('date_from')));
         $date_to = date('Y-m-d', strtotime($request->input('date_to')));
-
+        $check_in = strtotime($request->input('date_from'));
+        $check_out = strtotime($request->input('date_to'));
+        $total_money = ($check_out - $check_in) / 86400;
         $from = null;
         $to = null;
         $price = $request->price;
@@ -100,81 +114,36 @@ class HomeController extends Controller
                 $to = 20000;
                 break;
         }
-
-
         $houses = House::where('address', 'LIKE', '%' . $address . '%')
             ->where('date_from', '>=', $date_from)
             ->where('date_to', '<=', $date_to)
             ->when($bathroom, function ($query) use ($bathroom) {
                 return $query->where('bathroom', $bathroom);
             })
-
             ->when($bedroom, function ($query) use ($bedroom) {
                 return $query->where('bedroom', $bedroom);
             })
             ->when($from, function ($query) use ($from) {
-                return $query->where('price','>=', $from);
+                return $query->where('price', '>=', $from);
             })
             ->when($to, function ($query) use ($to) {
-                return $query->where('price','<=', $to);
+                return $query->where('price', '<=', $to);
             })
             ->get();
 
-       return view('home.search', compact('houses'));
+        return view('home.search', compact('houses', 'total_money'));
 
     }
-
-//    public function showPageGuest()
-//
-//    {
-//
-//        if (!$this->userCan('view-home.viewhome')) {
-//
-//            abort('403', __('Bạn không có quyền thực hiện thao tác này'));
-//
-//        }
-//
-//        return view("home.viewhome");
-//
-//    }
 
     public function showPageAdmin()
 
     {
-
         if (!$this->userCan('view-admin.admin')) {
 
             abort('403', __('Bạn không có quyền thực hiện thao tác này'));
 
         }
-
         return view("admin.admin");
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    public function  profile(){
-//        $user = Auth::user();
-//       // dd($user);
-//        return view('home.profile', compact('user'));
-//    }
-
 

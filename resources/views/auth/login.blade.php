@@ -51,7 +51,7 @@
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
-                            <a href="{{url('/redirect')}}" class="btn btn-primary btn-block">Login with Facebook</a>
+
                         </div>
 
                     </div>
@@ -63,8 +63,6 @@
                         </div>
 
                     </div>
-
-
                 </form>
 
             </div>
