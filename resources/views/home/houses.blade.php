@@ -78,7 +78,7 @@
 
         .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over {
             pointer-events: none;
-            background: #ccc;
+            background: #3d80cc;
         }
         .MultiCarousel .MultiCarousel-inner .item .link > div:hover .bg {
             opacity: 1;
@@ -117,7 +117,7 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <h3>Dù bạn đang tìm chỗ nghỉ nào chăng nữa, chúng tôi đều có...</h3>
+        <h3>No matter what kind of accommodation you are looking for, we have ...</h3>
     </div>
     <div class="row">
         <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">

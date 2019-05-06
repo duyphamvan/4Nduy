@@ -36,16 +36,16 @@
                         @if (Route::has('login'))
                             @auth
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/viewhome') }}">Home</a>
+                                    <a class="nav-link" href="{{ route('viewhome') }}">Home</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
+                                        {{ Auth::user()->name}}
 {{--                                        <span class="caret"></span>--}}
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right logout" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu dropdown-menu-right logout bg-dark text-white" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -53,6 +53,12 @@
                                         </a>
                                         <a class="dropdown-item" href="{{ route('showchangepassword') }}">
                                             Change Password
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('users.profiles',Auth::user()->id) }}">
+                                            Profile
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('admin.admin') }}">
+                                            Managerment
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                               style="display: none;">
@@ -125,4 +131,12 @@
             </div>
         </div>
     </div>
+
 </div>
+<style>
+    .blue {
+        transition: 1s;
+        opacity: 0;
+        visibility: hidden;
+    }
+</style>

@@ -4,28 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\House;
+use App\Http\Requests\FormSearchRequest;
 use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         $categories = Category::all();
@@ -39,13 +26,32 @@ class HomeController extends Controller
         $categories = Category::all();
         return view('home.list-house', compact('houses', 'category', 'image'));
     }
-    public function showHouse($id){
+
+    public function showHouse($id)
+    {
 
         $houseDetail = House::findOrFail($id);
         $houses = House::findOrFail($id)->images;
-        return view('home.house-detail', compact('houseDetail','houses'));
+        return view('home.house-detail', compact('houseDetail', 'houses'));
     }
 
+    public function rateHouse(Request $request)
+
+    {
+        if (Auth::check()) {
+            request()->validate(['rate' => 'required']);
+
+            $house = House::find($request->id);
+            $rating = new \willvincent\Rateable\Rating;
+            $rating->rating = $request->rate;
+            $rating->user_id = auth()->user()->id;
+            $house->ratings()->save($rating);
+//            return redirect()->route("viewhome");
+            return back();
+        }
+        return redirect()->route("login");
+
+    }
 
     public function showChangePasswordForm()
     {
@@ -73,58 +79,71 @@ class HomeController extends Controller
         return redirect()->route('viewhome')->with("success", "Password changed successfully !");
     }
 
-//    public function showPageGuest()
-//
-//    {
-//
-//        if (!$this->userCan('view-home.viewhome')) {
-//
-//            abort('403', __('Bạn không có quyền thực hiện thao tác này'));
-//
-//        }
-//
-//        return view("home.viewhome");
-//
-//    }
+    public function search(FormSearchRequest $request)
+    {
+        $bedroom = $request->bedroom;
+        $bathroom = $request->bathroom;
+        $address = $request->input('address');
+        $date_from = date('Y-m-d', strtotime($request->input('date_from')));
+        $date_to = date('Y-m-d', strtotime($request->input('date_to')));
+        $check_in = strtotime($request->input('date_from'));
+        $check_out = strtotime($request->input('date_to'));
+        $total_money = ($check_out - $check_in) / 86400;
+        $from = null;
+        $to = null;
+        $price = $request->price;
+        switch ($price) {
+            case 1:
+                $from = 1;
+                $to = 100;
+                break;
+            case 2:
+                $from = 100;
+                $to = 1000;
+                break;
+            case 3:
+                $from = 1000;
+                $to = 2000;
+                break;
+            case 4:
+                $from = 2000;
+                $to = 3000;
+                break;
+            case 5:
+                $from = 3000;
+                $to = 20000;
+                break;
+        }
+        $houses = House::where('address', 'LIKE', '%' . $address . '%')
+            ->where('date_from', '>=', $date_from)
+            ->where('date_to', '<=', $date_to)
+            ->when($bathroom, function ($query) use ($bathroom) {
+                return $query->where('bathroom', $bathroom);
+            })
+            ->when($bedroom, function ($query) use ($bedroom) {
+                return $query->where('bedroom', $bedroom);
+            })
+            ->when($from, function ($query) use ($from) {
+                return $query->where('price', '>=', $from);
+            })
+            ->when($to, function ($query) use ($to) {
+                return $query->where('price', '<=', $to);
+            })
+            ->get();
 
+        return view('home.search', compact('houses', 'total_money'));
+
+    }
 
     public function showPageAdmin()
 
     {
-
         if (!$this->userCan('view-admin.admin')) {
 
             abort('403', __('Bạn không có quyền thực hiện thao tác này'));
 
         }
-
         return view("admin.admin");
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    public function  profile(){
-//        $user = Auth::user();
-//       // dd($user);
-//        return view('home.profile', compact('user'));
-//    }
-
 

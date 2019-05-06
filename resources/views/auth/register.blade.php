@@ -58,7 +58,6 @@
                             <input id="exampleInputPassword1-confirm" type="password" class="form-control"
                                    name="password_confirmation" required>
                     </div>
-
                     <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">
                                 {{ __('Register') }}

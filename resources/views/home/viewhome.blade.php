@@ -4,6 +4,7 @@
     @include('home.slides')
     @include('home.date')
     @include('home.houses', ['categories'=>$categories])
+    @include('home.services')
 
 
 {{--    <div class="container">--}}

@@ -1,179 +1,366 @@
 @extends('home.index')
 @section('content')
-    @include('home.nav')
+    @include('home.nav-bg')
     <style>
-        html,body {
-         /*min-height:1500px;*/
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
             height: 100%;
-            background:url(http://thuthuatphanmem.vn/uploads/2018/05/18/hinh-nen-full-hd-1080-bai-bien-dep_022853660.jpg) fixed;
-            background-size:cover;}
-
-
-        img {
-            max-width: 100%;
-            height: auto;
+            background-color: #ffffff;
         }
-
-        ul li {
-            list-style: none
-        }
-
-        a, a:hover {
-            text-decoration: none;
-            box-shadow: none;
-            outline: none;
-            -moz-transition: all 0.2s ease-in;
-            -o-transition: all 0.2s ease-in;
-            -webkit-transition: all 0.2s ease-in;
-            transition: all 0.2s ease-in;
-        }
-
-        h1 {
-            text-align: center;
-            margin: 30px 0;
-            color: #fff;
-        }
-
-        .hls_sol li {
-            width: 25%;
-            max-width: 100%;
-            display: inline-block;
-            float: left;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-            height: 400px;
-        }
-
-        .hls_sol li img {
-            height: 100%;
-        }
-
-        .hls_sol ul {
+        body {
+            margin: 0;
             padding: 0;
-            display: flow-root;
         }
-
-        .hls_sol li:hover img {
-            -moz-transform: scale(1.1);
-            -webkit-transform: scale(1.1);
-            -ms-transform: scale(1.1);
-            -o-transform: scale(1.1);
-            transform: scale(1.1);
+        .detaillist {
+            position: relative;
+            display: none;
+            height: 350px;
+            margin-bottom: 10px
         }
-
-        .hls_sol li img {
-            -webkit-transition: transform 0.5s ease;
-            -o-transition: transform 0.5s ease;
-            transition: transform 0.5s ease;
+        .detaillist img {
+            height: 100%;
         }
-
-        .hls_sol .hls_sol_data {
+        .add-to-cart {
+            position: relative;
+            display: inline-block;
+            background: #3e3e3f;
+            color: #fff;
+            border: none;
+            border-radius: 0;
+            padding: 15px 20px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transform: translateZ(0);
+            transition: color 0.3s ease;
+            letter-spacing: 0.0625rem;
+            width: 100%;
+        }
+        .add-to-cart:hover:before {
+            transform: scaleX(1);
+        }
+        .add-to-cart:before {
             position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            content: '';
+            z-index: -1;
             top: 0;
-            transition: 0.3s ease-in-out;
-            background: rgba(0, 0, 0, 0.28);
-            visibility: hidden
-        }
-
-        .hls_sol ul li:hover .hls_sol_data {
-            background: rgba(0, 0, 0, 0.51);
-            transition: 0.3s ease-in-out;
-            visibility: visible
-        }
-
-        .hls_data {
-            position: absolute;
             left: 0;
             right: 0;
             bottom: 0;
-            padding: 60px 20px;
+            background: #565657;
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            transition: transform 0.3s ease-out;
+        }
+        .list-house-detail {
+            margin-top: 100px;
+        }
+        .description {
+            color: rgba(0, 0, 0, 0.69);
+        }
+        .display-comment .display-comment {
+            margin-left: 40px
         }
 
-        .hls_data a {
+        .display-comment span.username {
+            margin-left: -6%;
+        }
+        .display-comment span.username {
+            margin-left: -6%;
+            margin-top: -2%;
             display: block;
         }
 
-        .hls_title {
-            text-align: right;
-            font-size: 22px;
-            border-bottom: 2px solid #7db4ff;
-            padding: 10px 0;
-            margin: 10px 0;
-            color: #fff;
-        }
 
-        .hls_title:hover {
-            color: #fff;
-        }
 
-        .hls_sol_data h3 {
-            color: #fff;
-            transition: 0.5s
+        .display {
+            visibility: hidden;
         }
-
-        .hls_sol_data:hover h3 {
-            transition: 0.5s ease;
-            margin-top: 100px;
+        .list-house-detail .column {
+            float: left;
+            height: 150px;
+            width: 25%;
+            padding: 10px;
         }
-
-        .btn-pro {
-            border-radius: 0;
-            color: #222;
-            background: #fff;
-            display: inline-block !important;
-            float: right;
+        .list-house-detail .column img {
+            opacity: 0.8;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
         }
-
-        .btn-pro:hover {
-            color: #fff;
-            background: #355c79;
+        .list-house-detail .column img:hover {
+            opacity: 1;
         }
-
-        .sec_title {
+        .list-house-detail .row.image {
             text-align: center;
-            margin: 30px 0 30px;
+            border: 2px solid gainsboro;
+            max-width: 100%;
+            margin: 0;
+        }
+        .list-house-detail .row.image:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .list-house-detail .container {
+            position: relative;
+            display: none;
+            max-width: 100%;
+        }
+        .list-house-detail .container img {
+            height: 400px;
+        }
+        .list-house-detail .closebtn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
         }
 
-        .hls_data {
-            left: unset;
-            right: -310px;
-            transition: 1s ease
+        button.btn.btn-secondary.comment-button {
+            background-color: white;
+            color: #757373;
         }
 
-        .hls_sol_data:hover .hls_data {
-            left: 0;
-            right: 0;
-            transition: 1s ease
-        }
-        .house-detail{
-            margin-top: 200px;
-        }
+
     </style>
-<div class="house-detail">
-    <h1>{{$houseDetail->name}}</h1>
-    <div class="hls_sol">
-        <ul>
-            @foreach($houses as $key=>$house)
-                <li>
-                    <img src="{{asset("storage/$house->img")}}" alt="">
-                    <div class="hls_sol_data">
-                        <h3>{{$houseDetail->name}}</h3>
-                        <div class="hls_data">
-                            <a href="https://500px.com/ravi7284007" target="_blank" class="hls_title">{{$houseDetail->address}}</a>
-                            <a href="#https://www.facebook.com/ravi7284007" class="btn btn-pro" target="_blank">
-                                Booking Now</a>
+
+    <!-- The four columns -->
+    <div class="container list-house-detail">
+        <div class="row houses">
+            <div class="col-sm-7" style="display: block">
+                <div style="text-align:center">
+                    <h1 class="mb-5 ">{{$houseDetail->name}}</h1>
+                </div>
+                <div>
+                    <div class="container pl-0 pr-0">
+                        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                        <img id="expandedImg" style="width:100%">
+                    </div>
+                    <div class="row image">
+                        @foreach($houses as $house)
+                            <div class="column">
+                                <img class="thumbnail" src="{{asset('storage/'.$house->img)}}" alt=""
+                                     onclick="setThumbnailImage(this);">
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5 desc">
+                <p class="mt-5 font-weight-bold">${{$houseDetail->price}}&nbsp;<span class="small">per night</span></p>
+                <div style="color: #ff7626c7; font-size: 13px;margin-top: -15px;margin-bottom: 7px;">
+                    <span class="review-no float-left">{{ $houseDetail->ratings->groupBy('user_id')->count('user_id') }}&nbsp; Reviews,&nbsp;  </span>&nbsp;
+                    <span class="float-left">Average: </span> {!! str_repeat('<i class="fa fa-star" aria-hidden="true"></i>', $houseDetail->averageRating ) !!}
+
+                </div>
+                <hr>
+                <h5 class="">
+                    Dates
+                </h5>
+                <div class="input-group input-daterange">
+                    <input name="date_from" placeholder="Check in" type="text" class="form-control ">
+                    <div class="input-group-addon to">--></div>
+                    <input name="date_to" placeholder="Check out" type="text" class="form-control">
+                </div>
+                <hr>
+                <h5>Gues</h5>
+                <hr>
+                <div class="col-sm-12 pl-0 pt-4">
+
+
+                </div>
+
+                <button class="add-to-cart d-block">Booking</button>
+                <p class="small text-center mt-1" style="font-size: 10px">You won’t be charged yet</p>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <p class="font-weight-bolder small mb-0">This home is on people’s minds.</p>
+                        <span class="small "
+                              style="font-size: 12px">It’s been viewed 500+ times in the past week.</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="https://a0.muscache.com/airbnb/static/page3/icon-uc-light-bulb-b34f4ddc543809b3144949c9e8cfcc8d.gif"
+                             class="img-fluid rounded-circle" alt="">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {{--    List star--}}
+    <div class="container">
+        <div class="col-sm-7 " style="max-width: 100%; word-wrap: break-word;">
+            <h3 class=" ">{{$houseDetail->name}}</h3>
+            <div class="description" style="word-wrap: break-word;text-align: justify">
+                {{$houseDetail->description}}
+            </div>
+            <section id="reviews" class="mt-5">
+                <h2>Reviews</h2>
+                <div class="reviews-container">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div id="review_summary">
+                                <strong>8.5</strong>
+                                <em>Superb</em>
+                                <small>Based on 4 reviews</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="row">
+                                <div class="col-lg-10 col-9">
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 90%"
+                                             aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-3">
+                                    <small><strong>5 stars</strong></small>
+                                </div>
+                            </div>
+                            <!-- /row -->
+                            <div class="row">
+                                <div class="col-lg-10 col-9">
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 95%"
+                                             aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-3">
+                                    <small><strong>4 stars</strong></small>
+                                </div>
+                            </div>
+                            <!-- /row -->
+                            <div class="row">
+                                <div class="col-lg-10 col-9">
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 60%"
+                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-3">
+                                    <small><strong>3 stars</strong></small>
+                                </div>
+                            </div>
+                            <!-- /row -->
+                            <div class="row">
+                                <div class="col-lg-10 col-9">
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 20%"
+                                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-3">
+                                    <small><strong>2 stars</strong></small>
+                                </div>
+                            </div>
+                            <!-- /row -->
+                            <div class="row">
+                                <div class="col-lg-10 col-9">
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 0" aria-valuenow="0"
+                                             aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-3">
+                                    <small><strong>1 stars</strong></small>
+                                </div>
+                            </div>
+                            <!-- /row -->
                         </div>
                     </div>
-                </li>
-            @endforeach
-        </ul>
+                    <!-- /row -->
+                </div>
+                <div class="rating">
+                    <h3>Leave a Review</h3>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <form action="{{ route('rate') }}" method="POST">
+                                {{ csrf_field() }}
+                                <div class="rating">
+                                    <input id="input-1" name="rate" class="rating rating-loading" data-min="0"
+                                           data-max="5"
+                                           data-step="1" value="{{ $houseDetail->averageRating }}" data-size="xs">
+                                    <input type="hidden" name="id" required="" value="{{ $houseDetail->id }}">
+                                    <br/>
+                                    <button class="btn btn-success rate mb-3" style="margin-top: -34px">Review</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+
+                    <div class="review-box clearfix">
+                        <div class="col-sm-10">
+                            <div class="rev-content">
+                                <div class="rev-info">
+                                    @include('home.replies', ['comments' => $houseDetail    ->comments, 'post_id' => $houseDetail->id])
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- /review-container -->
+            </section>
+            <div class="row comment mr-0 ml-0">
+                        <div class="col-sm-12 pl-0 pr-0">
+                            @include('home.replies', ['comments' => $houseDetail->comments, 'post_id' => $houseDetail->id])
+                        </div>
+            </div>
+
+            <div class="add-review">
+
+                <div class="row">
+                    <div class="col-sm-10">
+                        <div class="form-group ">
+                            <h3>Your Review</h3>
+
+                            <form method="post" action="{{ route('comment.add') }}">
+                                @csrf
+                                <div class="form-group">
+                                    <textarea style="height:130px; word-wrap: break-word;" type="text"
+                                              name="comment_body" class="form-control" required>
+
+                                    </textarea>
+                                    <input type="hidden" name="post_id" value="{{$houseDetail->id }}"/>
+                                </div>
+                                <div class="form-group col-md-12 pl-0 add_top_20">
+                                    <input type="submit" class="btn btn-info" value="Comment"/>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    @include('home.services')
+    <script>
+        let thumbnails = $('.thumbnail');
+        if (thumbnails.length >= 0) {
+            setThumbnailImage(thumbnails.get(0));
+        }
+
+        function setThumbnailImage(imgs) {
+            var expandImg = document.getElementById("expandedImg");
+            expandImg.src = imgs.src;
+            expandImg.parentElement.style.display = "block";
+        }
+        $("#input-id").rating();
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                $('.desc').toggleClass("booking", ($(window).scrollTop() > 1000));
+            });
+        });
+    </script>
 @endsection
-
-
-
