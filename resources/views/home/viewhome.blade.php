@@ -6,12 +6,5 @@
     @include('home.houses', ['categories'=>$categories])
     @include('home.services')
 
-
-{{--    <div class="container">--}}
-{{--        <div class="col-sm-12">--}}
-{{--            <a href="{{route('profile')}}">Profile</a>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
 @endsection
 

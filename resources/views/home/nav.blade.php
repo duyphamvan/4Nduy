@@ -1,7 +1,7 @@
 <div class="menu">
     <div class="container">
         <div class="row icon">
-            <div class="col-sm-6 iconleft pl-0">
+            <div class="col-sm  -6 iconleft pl-0">
                 <nav class="navbar navbar-expand-lg pl-0 justify-content-start ">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -42,7 +42,6 @@
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name}}
-{{--                                        <span class="caret"></span>--}}
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right logout bg-dark text-white" aria-labelledby="navbarDropdown">
