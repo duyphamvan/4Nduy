@@ -1,6 +1,5 @@
 @extends('admin.admin')
 @section('content')
-
     <h3><center>Booking List</center></h3>
     <div class="container">
         <table class="table table-bordered table-hover">
