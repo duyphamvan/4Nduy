@@ -24,34 +24,34 @@
         <h2>Choice For
             Holiday Homes</h2>
         <div class="book-form agileits-login">
-            <form action="{{route('booking.store')}}" method="post">
+            <form action="#" method="post">
                 @csrf
-                <div class="phone_email">
+                <div class="name">
                     <label>Full name : </label>
                     <div class="form-text">
                         <i class="fa fa-user" aria-hidden="true"></i>
-                        <input type="text" name="name" placeholder="" required="" >
+                        <input type="text" name="name" placeholder="" required="" value="{{ $user->name }}" >
                     </div>
                 </div>
-                <div class="phone_email phone_email1">
+                <div class="email">
                     <label>Email : </label>
                     <div class="form-text">
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <input type="email" name="email" placeholder="" required="">
+                        <input type="email" name="email" placeholder="" required="" value="{{ $user->email }}">
                     </div>
                 </div>
-                <div class="phone_email">
+                <div class="phone">
                     <label>Phone number : </label>
                     <div class="form-text">
                         <i class="fa fa-phone" aria-hidden="true"></i>
-                        <input type="text" name="Phone no" placeholder="" required="">
+                        <input type="text" name="phone" placeholder="" required="" value="{{ $user->phone }}">
                     </div>
                 </div>
-                <div class="phone_email phone_email1">
+                <div class="address">
                     <label>Address : </label>
                     <div class="form-text">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <input type="text" name="address" placeholder="" required="" >
+                        <input type="text" name="address" placeholder="" required="" value="{{ $user->address }}">
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -60,7 +60,7 @@
                         <label>Departure Date : </label>
                         <div class="book_date">
                             <i class="fa fa-calendar" aria-hidden="true"></i>
-                            <input  id="datepicker" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+                            <input  id="datepicker" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="" value="{{$booking->date_from}}">
 
                         </div>
                     </div>
@@ -73,31 +73,11 @@
                         </div>
                     </div>
                     <div class="clear"></div>
-                    <div class="span1_of_1">
-                        <label>No.of people : </label>
-                        <!-- start_section_room -->
-                        <div class="section_room">
-                            <i class="fa fa-users" aria-hidden="true"></i>
-                            <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-                                <option value="AX"></option>
-                                <option value="null">1 People</option>
-                                <option value="null">2 People</option>
-                                <option value="null">3 People</option>
-                                <option value="AX">4 People</option>
-                                <option value="AX">More</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="span1_of_2">
-                        <label>Select House </label>
-                        <!-- start_section_room -->
-                        <div class="section_room">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            <select class="form-control" name="house_id">
-                                @foreach($houses as $house)
-                                    <option value="{{ $house->id }}">{{ $house->name }}</option>
-                                @endforeach
-                            </select>
+                    <div class="house_id">
+                        <label>House Booking Name </label>
+                        <div class="form-text">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <input type="text" name="house_name" placeholder="" required="" value="{{$house_name}}" >
                         </div>
                     </div>
                     <div class="clear"></div>

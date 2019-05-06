@@ -2,7 +2,8 @@
     <div class="display-comment" id="comment-{{$comment->id}}">
         <div class="thumbnail-image" style="width: 12%; float: left;">
             <figure class="rev-thumb">
-                <img src="{{asset('storage/images/about.jpg')}}" class="" alt=""
+{{--                {{dd("storage/").$comment->user->image}}--}}
+                <img src="{{asset("storage/".$comment->user->image)}}" class="" alt=""
                      style="border-radius: 50%; width: 54px; height: 50px; ">
 
             </figure>

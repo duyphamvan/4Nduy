@@ -27,18 +27,13 @@ class BookingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, $id)
     {
         $booking = new Booking();
-        $houses = House::all();
-        Booking::create([
-            'user_name' => auth()->user()->name,
-//            'house_id' => $request->house_id,
-//            'date_from' => $request->date_from,
-//            'date_to' => $request->date_to,
-        ]);
-
-        return view('booking.create',compact('houses', 'user'));
+        $user = Auth::user();
+        $house_id = $id;
+        $house_name = House::findOrFail($house_id)->name;
+        return view('booking.create', compact('user', 'house_name', 'booking'));
     }
 
     /**
@@ -47,25 +42,25 @@ class BookingsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $request->validate([
             'user_id' => 'required',
-            'house_id' => 'required',
+            'house_name' => 'required',
             'date_from' => 'required',
             'date_to' => 'required',
         ]);
 
         // Save into Database
+
         Booking::create([
             'user_id' => auth()->user()->id,
-            'house_id' => $request->house_id,
             'date_from' => $request->date_from,
             'date_to' => $request->date_to,
         ]);
 
         // Update Rooms status
-        $house = House::find($request->house_id);
+        $house = House::findOrFail($id);
         $house->status = 0;
         $house->save();
 

@@ -75,6 +75,6 @@ Route::get('/search', 'HomeController@search')->name('search');
 
 Route::prefix('/booking')->group(function (){
     Route::get('/', 'BookingsController@index')->name('booking.index');
-    Route::get('/create', 'BookingsController@create')->name('booking.create');
-    Route::post('/store-booking','BookingsController@store')->name('booking.store');
+    Route::get('/{house_id}/create', 'BookingsController@create')->name('booking.create');
+    Route::post('/{house_id}/{id}/store-booking','BookingsController@store')->name('booking.store');
 });

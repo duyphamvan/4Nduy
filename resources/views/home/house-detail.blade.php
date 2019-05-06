@@ -175,7 +175,7 @@
 
                 </div>
 
-                <button class="add-to-cart d-block">Booking</button>
+                <a class="add-to-cart d-block" href="{{route('booking.create', $houseDetail->id), $houseDetail->name}}">Booking</a>
                 <p class="small text-center mt-1" style="font-size: 10px">You won’t be charged yet</p>
                 <hr>
                 <div class="row">
@@ -299,15 +299,15 @@
                 <hr>
 
 
-                    <div class="review-box clearfix">
-                        <div class="col-sm-10">
-                            <div class="rev-content">
-                                <div class="rev-info">
-                                    @include('home.replies', ['comments' => $houseDetail    ->comments, 'post_id' => $houseDetail->id])
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="review-box clearfix">--}}
+{{--                        <div class="col-sm-10">--}}
+{{--                            <div class="rev-content">--}}
+{{--                                <div class="rev-info">--}}
+{{--                                    @include('home.replies', ['comments' => $houseDetail->comments, 'post_id' => $houseDetail->id])--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                 <!-- /review-container -->
             </section>
