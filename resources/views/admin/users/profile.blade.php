@@ -84,10 +84,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                            <label for="staticEmail" class="col-sm-2 col-form-label" >Email</label>
                             <div class="col-sm-8">
                                 <input type="email" class="form-control" name="email"
-                                       value="{{ $user->email  }}">
+                                       disabled value="{{ $user->email  }}">
                             </div>
                         </div>
                         <div class="form-group row">
