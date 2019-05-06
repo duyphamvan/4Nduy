@@ -63,6 +63,7 @@
         .display-comment .display-comment {
             margin-left: 40px
         }
+
         .display-comment span.username {
             margin-left: -6%;
         }
@@ -71,6 +72,9 @@
             margin-top: -2%;
             display: block;
         }
+
+
+
         .display {
             visibility: hidden;
         }
@@ -116,6 +120,13 @@
             font-size: 35px;
             cursor: pointer;
         }
+
+        button.btn.btn-secondary.comment-button {
+            background-color: white;
+            color: #757373;
+        }
+
+
     </style>
 
     <!-- The four columns -->
@@ -133,7 +144,8 @@
                     <div class="row image">
                         @foreach($houses as $house)
                             <div class="column">
-                                <img src="{{asset('storage/'.$house->img)}}" alt="" onclick="myFunction(this);">
+                                <img class="thumbnail" src="{{asset('storage/'.$house->img)}}" alt=""
+                                     onclick="setThumbnailImage(this);">
                             </div>
                         @endforeach
                     </div>
@@ -169,10 +181,12 @@
                 <div class="row">
                     <div class="col-sm-9">
                         <p class="font-weight-bolder small mb-0">This home is on people’s minds.</p>
-                        <span class="small " style="font-size: 12px">It’s been viewed 500+ times in the past week.</span>
+                        <span class="small "
+                              style="font-size: 12px">It’s been viewed 500+ times in the past week.</span>
                     </div>
                     <div class="col-sm-3">
-                        <img src="https://a0.muscache.com/airbnb/static/page3/icon-uc-light-bulb-b34f4ddc543809b3144949c9e8cfcc8d.gif" class="img-fluid rounded-circle" alt="">
+                        <img src="https://a0.muscache.com/airbnb/static/page3/icon-uc-light-bulb-b34f4ddc543809b3144949c9e8cfcc8d.gif"
+                             class="img-fluid rounded-circle" alt="">
                     </div>
 
                 </div>
@@ -283,7 +297,7 @@
                     </div>
                 </div>
                 <hr>
-                <div class="reviews-container">
+
 
                     <div class="review-box clearfix">
                         <div class="col-sm-10">
@@ -294,9 +308,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+
                 <!-- /review-container -->
             </section>
+            <div class="row comment mr-0 ml-0">
+                        <div class="col-sm-12 pl-0 pr-0">
+                            @include('home.replies', ['comments' => $houseDetail->comments, 'post_id' => $houseDetail->id])
+                        </div>
+            </div>
 
             <div class="add-review">
 
@@ -324,12 +343,15 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     @include('home.services')
     <script>
-        function myFunction(imgs) {
+        let thumbnails = $('.thumbnail');
+        if (thumbnails.length >= 0) {
+            setThumbnailImage(thumbnails.get(0));
+        }
+
+        function setThumbnailImage(imgs) {
             var expandImg = document.getElementById("expandedImg");
             expandImg.src = imgs.src;
             expandImg.parentElement.style.display = "block";
@@ -337,7 +359,7 @@
         $("#input-id").rating();
         $(document).ready(function () {
             $(window).scroll(function () {
-                $('.desc').toggleClass("booking", ($(window).scrollTop() > 1500));
+                $('.desc').toggleClass("booking", ($(window).scrollTop() > 1000));
             });
         });
     </script>
