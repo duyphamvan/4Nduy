@@ -15,7 +15,7 @@
                 <th>Booked By</th>
                 <th>Status</th>
                 <th>Action</th>
-                <button type="button" href="{{route('booking.create')}}"></button>
+                <a class="booking" type="button" href="{{route('booking.create'), $houseDetail->id}}">Create Booking</a>
             </tr>
             </thead>
             <tbody>

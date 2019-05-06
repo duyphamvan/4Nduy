@@ -175,7 +175,7 @@
 
                 </div>
 
-                <button class="add-to-cart d-block">Booking</button>
+                <a class="add-to-cart d-block" href="{{route('booking.create', $houseDetail->id), $houseDetail->name}}">Booking</a>
                 <p class="small text-center mt-1" style="font-size: 10px">You won’t be charged yet</p>
                 <hr>
                 <div class="row">
