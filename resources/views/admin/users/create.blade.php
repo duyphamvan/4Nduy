@@ -13,10 +13,6 @@
                     </ul>
                 </div>
             @endif
-
-
-
-
             <div class="col-12 col-md-12">
                 <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
                     @csrf
@@ -87,6 +83,6 @@
                     </div>
                 </form>
             </div>
-        </form>>
+        </form>
     </div>
     @endsection

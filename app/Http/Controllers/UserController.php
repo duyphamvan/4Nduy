@@ -130,14 +130,12 @@ class UserController extends Controller
         $user->address = $request->address;
 
         if ($request->hasFile('image')) {
-//            unlink(public_path() . '/storage/' . $user->image);
             $avatar = $request->image;
             $path = $avatar->store('avatar', 'public');
             $user->image = $path;
         }
-
         $user->save();
-        Session::flash('success', 'Cập nhật thành công!');
-        return redirect()->route('viewhome', compact('user'));
+        Session::flash('success', 'Cập nhật thông tin thành công!');
+        return redirect()->route('users.profiles', compact('user'));
     }
 }

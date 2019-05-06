@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Booking;
 use App\House;
 use App\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,8 +64,7 @@ class BookingsController extends Controller
         $house->status = 0;
         $house->save();
 
-        session()->flash('msg', 'The Room Has been booked');
-
+        Session::flash('success', 'Cập nhật khách hàng thành công');
         return redirect('/booking');
 
     }

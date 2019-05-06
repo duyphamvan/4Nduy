@@ -32,10 +32,8 @@ class CommentController extends Controller
             $post = House::find($request->get('post_id'));
             $post->comments()->save($reply);
 
-//            return response()->json(['comment_id' => $request->get('comment_id'), 'reply' => $reply]);
             return back();
         }
-//        return response()->json(['message' => 'error'], 403);
         return redirect()->route("login");
 
     }
