@@ -45,7 +45,7 @@
                                         <span class="form-label">User Name</span>
                                         <input class="form-control" type="text"
                                                placeholder="Enter a destination or hotel name" name="name" required=""
-                                               value="{{ $user->name }}">
+                                               value="{{ $user->name }}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -75,11 +75,11 @@
                                     <div class="form-group">
                                         <span class="form-label">Departure Date </span>
                                         <div class="date-form">
-                                            <input class="form-control" readonly id="datepicker" name="date_from"
+                                            <input class="form-control"  id="datepicker" name="date_from"
                                                    type="text" value="{{$house_date_from}}"
                                                    onfocus="this.value = '';"
                                                    onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
-                                                   required="" value="{{$booking->date_from}}">
+                                                   required="" value="{{$booking->date_from}}" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -87,10 +87,10 @@
                                     <div class="form-group">
                                         <span class="form-label">Arrival Date </span>
                                         <div class="date-form">
-                                            <input class="form-control" readonly id="datepicker1" name="date_to"
+                                            <input class="form-control"  id="datepicker1" name="date_to"
                                                    type="text" value="{{$house_date_to}}" onfocus="this.value = '';"
                                                    onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
-                                                   required="">
+                                                   required="" readonly>
                                         </div>
                                     </div>
                                 </div>

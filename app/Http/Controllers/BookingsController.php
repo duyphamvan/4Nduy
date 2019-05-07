@@ -51,6 +51,7 @@ class BookingsController extends Controller
      */
     public function store(Request $request, $id)
     {
+        dd($request->all());
 //        $request->validate([
 //            'user_id' => 'required',
 //            'name' => 'required',
