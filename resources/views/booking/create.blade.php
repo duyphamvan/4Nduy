@@ -76,7 +76,9 @@
                                                name="phone" required="" value="{{ $user->phone }}">
                                     </div>
                                 </div>
-                                    <div class="col-sm-6">
+                            </div>
+                            <div class="row">
+                            <div class="col-sm-6">
                                         <div class="form-group">
                                             <span class="form-label">Departure Date </span>
                                             <div class="date-form">
