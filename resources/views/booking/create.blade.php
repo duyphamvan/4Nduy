@@ -37,7 +37,7 @@
                     <label>Email : </label>
                     <div class="form-text">
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <input type="email" name="email" placeholder="" required="" value="{{ $user->email }}">
+                        <input type="email" name="email" placeholder="" required="" value="{{ $user->email }}" disabled>
                     </div>
                 </div>
                 <div class="phone">
@@ -58,17 +58,17 @@
                 <div class="agileits_reservation_grid">
                     <div class="span1_of_1">
                         <label>Departure Date : </label>
-                        <div class="book_date">
+                        <div class="date_from">
                             <i class="fa fa-calendar" aria-hidden="true"></i>
-                            <input  id="datepicker" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="" value="{{$booking->date_from}}">
+                            <input disabled id="datepicker" name="date_from" type="text" value="{{$house_date_from}}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="" value="{{$booking->date_from}}">
 
                         </div>
                     </div>
                     <div class="span1_of_2">
                         <label>Arrival Date : </label>
-                        <div class="book_date">
+                        <div class="date_to">
                             <i class="fa fa-calendar" aria-hidden="true"></i>
-                            <input  id="datepicker1" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+                            <input disabled id="datepicker1" name="date_to" type="text" value="{{$house_date_to}}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
 
                         </div>
                     </div>
@@ -77,7 +77,22 @@
                         <label>House Booking Name </label>
                         <div class="form-text">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            <input type="text" name="house_name" placeholder="" required="" value="{{$house_name}}" >
+                            <input disabled type="text" name="house_name" placeholder="" required="" value="{{$house_name}}" >
+                        </div>
+                    </div>
+                    <div class="house_bedroom">
+                        <label>Bedroom </label>
+                        <div class="form-text">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <input disabled type="text" name="house_bedroom" placeholder="" required="" value="{{$house_bedroom}}" >
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="house_bathroom">
+                        <label>Bathroom </label>
+                        <div class="form-text">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <input disabled type="text" name="house_bathroom" placeholder="" required="" value="{{$house_bathroom}}" >
                         </div>
                     </div>
                     <div class="clear"></div>
