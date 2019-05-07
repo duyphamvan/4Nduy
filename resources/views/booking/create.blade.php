@@ -46,7 +46,6 @@
                     <div class="booking-form agileits-login">
                         <form action="#" method="post">
                             @csrf
-
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -63,7 +62,6 @@
                                                required="" value="{{ $user->email }}" disabled>
                                     </div>
                                 </div>
-
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <span class="form-label">Address</span>
@@ -78,12 +76,6 @@
                                                name="phone" required="" value="{{ $user->phone }}">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <span class="form-label">House Booking Name</span>
-                                    <input class="form-control" type="text" name="house_name" placeholder="" required=""
-                                           value="{{$house_name}}">
-                                </div>
-                                <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <span class="form-label">Departure Date </span>
@@ -123,9 +115,13 @@
                                                    placeholder="" required="" value="{{$house_bathroom}}">
                                         </div>
                                     </div>
-                                    <div class="form-btn">
-                                        <button class="submit-btn" value="Reservation">Check availability</button>
-                                    </div>
+                                <div class="form-group">
+                                    <span class="form-label">House Booking Name</span>
+                                    <input class="form-control" type="text" name="house_name" placeholder="" required=""
+                                           value="{{$house_name}}">
+                                </div>
+                                <div class="form-btn">
+                                    <button class="submit-btn" value="Reservation">Check availability</button>
                                 </div>
                             </div>
                         </form>
@@ -137,8 +133,6 @@
 </div>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
-
-
 
 
 

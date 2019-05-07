@@ -31,13 +31,16 @@ class BookingsController extends Controller
     {
         $booking = new Booking();
         $user = Auth::user();
+        if ($user == null) {
+            return redirect()->route('login');
+        }
         $house_id = $id;
         $house_name = House::findOrFail($house_id)->name;
         $house_bedroom = House::findOrFail($house_id)->bedroom;
         $house_bathroom = House::findOrFail($house_id)->bathroom;
         $house_date_from = House::findOrFail($house_id)->date_from;
         $house_date_to = House::findOrFail($house_id)->date_to;
-        return view('booking.create', compact('user', 'house_name', 'booking', 'house_bedroom', 'house_bathroom','house_date_from', 'house_date_to'));
+        return view('booking.create', compact('user','house_id','house_name', 'booking', 'house_bedroom', 'house_bathroom','house_date_from', 'house_date_to'));
     }
 
     /**
@@ -48,24 +51,28 @@ class BookingsController extends Controller
      */
     public function store(Request $request, $id)
     {
-        dd($request);
         $request->validate([
             'user_id' => 'required',
+            'name' => 'required',
+            'email' => 'required',
             'house_name' => 'required',
             'date_from' => 'required',
             'date_to' => 'required',
         ]);
 
         // Save into Database
-
+        $house_id = $id;
         Booking::create([
             'user_id' => auth()->user()->id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'house_name' =>$request->house_name,
             'date_from' => $request->date_from,
             'date_to' => $request->date_to,
         ]);
 
         // Update Rooms status
-        $house = House::findOrFail($id);
+        $house = House::findOrFail($house_id);
         $house->status = 0;
         $house->save();
 
