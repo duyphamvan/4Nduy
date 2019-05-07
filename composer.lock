@@ -2410,7 +2410,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "BackEndTea@gmail.com"
+                    "email": "backendtea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -4417,7 +4417,6 @@
                 "hhvm"
             ],
             "time": "2019-05-05T09:05:15+00:00"
-
         },
         {
             "name": "sebastian/exporter",

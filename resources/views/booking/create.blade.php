@@ -1,109 +1,123 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Booking Form a Responsive Widget</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Holiday Homes Booking Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!-- Custom Theme files -->
-    <!-- font-awesome-icons -->
-    <link href="css/font-awesome.css" rel="stylesheet">
-    <!-- //font-awesome-icons -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <!--fonts
-<link href="//fonts.googleapis.com/css?family=Barlow:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-<--fonts-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Travel Booking Room</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/booking.css') }}" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        html, body {
+            height: 100%;
+            background: url(http://thuthuatphanmem.vn/uploads/2018/05/18/hinh-nen-full-hd-1080-bai-bien-dep_022853660.jpg) fixed;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
-<!--background-->
-<h1> Homes Booking </h1>
-<div class="bg-agile">
-    <div class="book-appointment">
-        <h2>Choice For
-            Holiday Homes</h2>
-        <div class="book-form agileits-login">
-            <form action="#" method="post">
-                @csrf
-                <div class="name">
-                    <label>Full name : </label>
-                    <div class="form-text">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <input type="text" name="name" placeholder="" required="" value="{{ $user->name }}" >
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-md-push-5">
+                    <div class="booking-cta">
+                        <h1>Choice For Holiday Homes</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere, soluta magnam consectetur molestias itaque
+                            ad sint fugit architecto incidunt iste culpa perspiciatis possimus voluptates aliquid consequuntur cumque quasi.
+                            Perspiciatis.
+                        </p>
                     </div>
                 </div>
-                <div class="email">
-                    <label>Email : </label>
-                    <div class="form-text">
-                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <input type="email" name="email" placeholder="" required="" value="{{ $user->email }}" disabled>
-                    </div>
-                </div>
-                <div class="phone">
-                    <label>Phone number : </label>
-                    <div class="form-text">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        <input type="text" name="phone" placeholder="" required="" value="{{ $user->phone }}">
-                    </div>
-                </div>
-                <div class="address">
-                    <label>Address : </label>
-                    <div class="form-text">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <input type="text" name="address" placeholder="" required="" value="{{ $user->address }}">
-                    </div>
-                </div>
-                <div class="clear"></div>
-                <div class="agileits_reservation_grid">
-                    <div class="span1_of_1">
-                        <label>Departure Date : </label>
-                        <div class="date_from">
-                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                            <input disabled id="datepicker" name="date_from" type="text" value="{{$house_date_from}}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="" value="{{$booking->date_from}}">
+                <div class="col-md-4 col-md-pull-7">
+                    <div class="booking-form agileits-login">
+                        <form action="#" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <span class="form-label">Full Hotel Name</span>
+                                <input class="form-control" type="text" placeholder="Enter a destination or hotel name"  name="name" required="" value="{{ $user->name }}">
+                            </div>
+                            <div class="form-group">
+                                <span class="form-label">Email</span>
+                                <input class="form-control" type="text" placeholder="Email"  name="email" required="" value="{{ $user->email }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <span class="form-label">Phone Number</span>
+                                <input class="form-control" type="text" placeholder="Enter a phone number" name="phone" required="" value="{{ $user->phone }}">
+                            </div>
+                            <div class="form-group">
+                                <span class="form-label">Address</span>
+                                <input class="form-control" type="text" placeholder="Address"  name="address" required="" value="{{ $user->address }}">
+                            </div>
+                            <div class="form-group">
+                                <span class="form-label">House Booking Name</span>
+                                <input class="form-control" type="text" name="house_name" placeholder="" required="" value="{{$house_name}}" >
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Departure Date </span>
+                                        <div class="date-form">
+                                            <input  class="form-control" disabled id="datepicker" name="date_from" type="text" value="{{$house_date_from}}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="" value="{{$booking->date_from}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Arrival Date </span>
+                                        <div class="date-form">
+                                            <input  class="form-control" disabled id="datepicker1" name="date_to" type="text" value="{{$house_date_to}}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                    <label>Bedroom </label>
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <input class="form-control" disabled type="text" name="house_bedroom" placeholder="" required="" value="{{$house_bedroom}}" >
+                                    </div>
+                                </div>
 
-                        </div>
-                    </div>
-                    <div class="span1_of_2">
-                        <label>Arrival Date : </label>
-                        <div class="date_to">
-                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                            <input disabled id="datepicker1" name="date_to" type="text" value="{{$house_date_to}}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Bathroom </label>
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <input class="form-control" disabled type="text" name="house_bathroom" placeholder="" required="" value="{{$house_bathroom}}" >
+                                    </div>
+                                </div>
+                            <div class="form-btn">
+                                <button class="submit-btn" value="Reservation">Check availability</button>
+                            </div>
 
-                        </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="clear"></div>
-                    <div class="house_id">
-                        <label>House Booking Name </label>
-                        <div class="form-text">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <input disabled type="text" name="house_name" placeholder="" required="" value="{{$house_name}}" >
-                        </div>
-                    </div>
-                    <div class="house_bedroom">
-                        <label>Bedroom </label>
-                        <div class="form-text">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <input disabled type="text" name="house_bedroom" placeholder="" required="" value="{{$house_bedroom}}" >
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="house_bathroom">
-                        <label>Bathroom </label>
-                        <div class="form-text">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <input disabled type="text" name="house_bathroom" placeholder="" required="" value="{{$house_bathroom}}" >
-                        </div>
-                    </div>
-                    <div class="clear"></div>
                 </div>
-
-                <input type="submit" value="Reservation">
-            </form>
+            </div>
         </div>
-
     </div>
 </div>
-
-</body>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
+
+
+
+
+
+
