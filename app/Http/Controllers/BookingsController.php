@@ -51,34 +51,26 @@ class BookingsController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $request->validate([
-            'user_id' => 'required',
-            'name' => 'required',
-            'email' => 'required',
-            'house_name' => 'required',
-            'date_from' => 'required',
-            'date_to' => 'required',
-        ]);
-
+        dd($request->all());
+//        $request->validate([
+//            'user_id' => 'required',
+//            'name' => 'required',
+//            'email' => 'required',
+//            'house_name' => 'required',
+//            'date_from' => 'required',
+//            'date_to' => 'required',
+//        ]);
         // Save into Database
-        $house_id = $id;
-        Booking::create([
-            'user_id' => auth()->user()->id,
-            'name' => $request->name,
-            'email' => $request->email,
-            'house_name' =>$request->house_name,
-            'date_from' => $request->date_from,
-            'date_to' => $request->date_to,
-        ]);
-
+        $bookings = new Booking();
+        $bookings->user_id = Auth::id();
+        $bookings->house_id = $id;
+        $bookings->date_from = $request->date_from;
+        $bookings->date_to = $request->date_to;
+        $bookings->user_name = $request->name;
+        $bookings->save();
         // Update Rooms status
-        $house = House::findOrFail($house_id);
-        $house->status = 0;
-        $house->save();
-
         Session::flash('success', 'Cập nhật khách hàng thành công');
-        return redirect('/booking');
-
+        return redirect('/viewhome');
     }
 
     /**

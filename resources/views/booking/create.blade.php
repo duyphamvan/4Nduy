@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-6 col-md-pull-6">
                     <div class="booking-form agileits-login">
-                        <form action="#" method="post">
+                        <form action="{{route('booking.store', $house_id)}}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-sm-6">
@@ -75,7 +75,7 @@
                                     <div class="form-group">
                                         <span class="form-label">Departure Date </span>
                                         <div class="date-form">
-                                            <input class="form-control" disabled id="datepicker" name="date_from"
+                                            <input class="form-control" readonly id="datepicker" name="date_from"
                                                    type="text" value="{{$house_date_from}}"
                                                    onfocus="this.value = '';"
                                                    onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
@@ -87,7 +87,7 @@
                                     <div class="form-group">
                                         <span class="form-label">Arrival Date </span>
                                         <div class="date-form">
-                                            <input class="form-control" disabled id="datepicker1" name="date_to"
+                                            <input class="form-control" readonly id="datepicker1" name="date_to"
                                                    type="text" value="{{$house_date_to}}" onfocus="this.value = '';"
                                                    onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
                                                    required="">
@@ -106,7 +106,7 @@
                                     <div class="form-group">
                                         <label>Bathroom </label>
                                         <i class="fa fa-user" aria-hidden="true"></i>
-                                        <input class="form-control" disabled type="text" name="house_bathroom"
+                                        <input class="form-control" readonly type="text" name="house_bathroom"
                                                placeholder="" required="" value="{{$house_bathroom}}">
                                     </div>
                                 </div>
