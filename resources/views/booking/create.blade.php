@@ -77,9 +77,7 @@
                                         <div class="date-form">
                                             <input class="form-control"  id="datepicker" name="date_from"
                                                    type="text" value="{{$house_date_from}}"
-                                                   onfocus="this.value = '';"
-                                                   onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
-                                                   required="" value="{{$booking->date_from}}" readonly>
+                                                   required=""  readonly >
                                         </div>
                                     </div>
                                 </div>
@@ -88,8 +86,7 @@
                                         <span class="form-label">Arrival Date </span>
                                         <div class="date-form">
                                             <input class="form-control"  id="datepicker1" name="date_to"
-                                                   type="text" value="{{$house_date_to}}" onfocus="this.value = '';"
-                                                   onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
+                                                   type="text" value="{{$house_date_to}}"
                                                    required="" readonly>
                                         </div>
                                     </div>
