@@ -38,7 +38,7 @@
             <div class="row">
                 <div class="col-md-7 col-md-push-5">
                     <div class="booking-cta">
-                        <h1>Make your reservation</h1>
+                        <h1>Choice For Holiday Homes</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere, soluta magnam consectetur molestias itaque
                             ad sint fugit architecto incidunt iste culpa perspiciatis possimus voluptates aliquid consequuntur cumque quasi.
                             Perspiciatis.
@@ -46,15 +46,16 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-md-pull-7">
-                    <div class="booking-form">
-                        <form>
+                    <div class="booking-form agileits-login">
+                        <form action="#" method="post">
+                            @csrf
                             <div class="form-group">
                                 <span class="form-label">Full Hotel Name</span>
                                 <input class="form-control" type="text" placeholder="Enter a destination or hotel name"  name="name" required="" value="{{ $user->name }}">
                             </div>
                             <div class="form-group">
                                 <span class="form-label">Email</span>
-                                <input class="form-control" type="text" placeholder="Email"  name="email" required="" value="{{ $user->email }}">
+                                <input class="form-control" type="text" placeholder="Email"  name="email" required="" value="{{ $user->email }}" disabled>
                             </div>
                             <div class="form-group">
                                 <span class="form-label">Phone Number</span>
@@ -71,20 +72,39 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <span class="form-label">Check In</span>
-                                        <input   class="form-control" id="datepicker" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="" value="{{$booking->date_from}}">
+                                        <span class="form-label">Departure Date </span>
+                                        <div class="date-form">
+                                            <input  class="form-control" disabled id="datepicker" name="date_from" type="text" value="{{$house_date_from}}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="" value="{{$booking->date_from}}">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <span class="form-label">Check out</span>
-                                        <input  class="form-control" id="datepicker1" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+                                        <span class="form-label">Arrival Date </span>
+                                        <div class="date-form">
+                                            <input  class="form-control" disabled id="datepicker1" name="date_to" type="text" value="{{$house_date_to}}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                    <label>Bedroom </label>
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <input class="form-control" disabled type="text" name="house_bedroom" placeholder="" required="" value="{{$house_bedroom}}" >
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Bathroom </label>
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <input class="form-control" disabled type="text" name="house_bathroom" placeholder="" required="" value="{{$house_bathroom}}" >
+                                    </div>
+                                </div>
+                            <div class="form-btn">
+                                <button class="submit-btn" value="Reservation">Check availability</button>
                             </div>
 
-                            <div class="form-btn">
-                                <button class="submit-btn">Check availability</button>
                             </div>
                         </form>
                     </div>
@@ -94,7 +114,6 @@
     </div>
 </div>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-
 </html>
 
 

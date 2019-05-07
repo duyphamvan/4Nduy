@@ -27,13 +27,17 @@ class BookingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request, $id)
+    public function create($id)
     {
         $booking = new Booking();
         $user = Auth::user();
         $house_id = $id;
         $house_name = House::findOrFail($house_id)->name;
-        return view('booking.create', compact('user', 'house_name', 'booking'));
+        $house_bedroom = House::findOrFail($house_id)->bedroom;
+        $house_bathroom = House::findOrFail($house_id)->bathroom;
+        $house_date_from = House::findOrFail($house_id)->date_from;
+        $house_date_to = House::findOrFail($house_id)->date_to;
+        return view('booking.create', compact('user', 'house_name', 'booking', 'house_bedroom', 'house_bathroom','house_date_from', 'house_date_to'));
     }
 
     /**
@@ -44,6 +48,7 @@ class BookingsController extends Controller
      */
     public function store(Request $request, $id)
     {
+        dd($request);
         $request->validate([
             'user_id' => 'required',
             'house_name' => 'required',
