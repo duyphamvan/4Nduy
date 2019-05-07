@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Booking;
 use App\House;
 use App\User;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class BookingsController extends Controller
 {
@@ -51,7 +51,6 @@ class BookingsController extends Controller
      */
     public function store(Request $request, $id)
     {
-        dd($request->all());
 //        $request->validate([
 //            'user_id' => 'required',
 //            'name' => 'required',

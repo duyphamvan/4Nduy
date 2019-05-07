@@ -98,7 +98,7 @@
                                     <div class="form-group">
                                         <label>Bedroom </label>
                                         <i class="fa fa-user" aria-hidden="true"></i>
-                                        <input class="form-control" disabled type="text" name="house_bedroom"
+                                        <input class="form-control" readonly type="text" name="house_bedroom"
                                                placeholder="" required="" value="{{$house_bedroom}}">
                                     </div>
                                 </div>
