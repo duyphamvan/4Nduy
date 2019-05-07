@@ -42,7 +42,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-7 col-md-pull-7">
+                <div class="col-md-6 col-md-pull-6">
                     <div class="booking-form agileits-login">
                         <form action="#" method="post">
                             @csrf
