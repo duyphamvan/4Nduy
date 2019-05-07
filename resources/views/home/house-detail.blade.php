@@ -163,9 +163,9 @@
                     Dates
                 </h5>
                 <div class="input-group input-daterange">
-                    <input name="date_from" placeholder="Check in" type="text" class="form-control ">
+                    <input disabled name="date_from" placeholder="Check in" type="text" class="form-control " value="{{$houseDetail->date_from}}">
                     <div class="input-group-addon to">--></div>
-                    <input name="date_to" placeholder="Check out" type="text" class="form-control">
+                    <input disabled name="date_to" placeholder="Check out" type="text" class="form-control" value="{{$houseDetail->date_to}}">
                 </div>
                 <hr>
                 <h5>Gues</h5>
