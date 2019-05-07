@@ -18,13 +18,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-        html, body {
-            height: 100%;
-            background: url(http://thuthuatphanmem.vn/uploads/2018/05/18/hinh-nen-full-hd-1080-bai-bien-dep_022853660.jpg) fixed;
-            background-size: cover;
-        }
-    </style>
 </header>
 <body>
 <div id="booking" class="section">
@@ -78,45 +71,45 @@
                                 </div>
                             </div>
                             <div class="row">
-                            <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <span class="form-label">Departure Date </span>
-                                            <div class="date-form">
-                                                <input class="form-control" disabled id="datepicker" name="date_from"
-                                                       type="text" value="{{$house_date_from}}"
-                                                       onfocus="this.value = '';"
-                                                       onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
-                                                       required="" value="{{$booking->date_from}}">
-                                            </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Departure Date </span>
+                                        <div class="date-form">
+                                            <input class="form-control" disabled id="datepicker" name="date_from"
+                                                   type="text" value="{{$house_date_from}}"
+                                                   onfocus="this.value = '';"
+                                                   onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
+                                                   required="" value="{{$booking->date_from}}">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <span class="form-label">Arrival Date </span>
-                                            <div class="date-form">
-                                                <input class="form-control" disabled id="datepicker1" name="date_to"
-                                                       type="text" value="{{$house_date_to}}" onfocus="this.value = '';"
-                                                       onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
-                                                       required="">
-                                            </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Arrival Date </span>
+                                        <div class="date-form">
+                                            <input class="form-control" disabled id="datepicker1" name="date_to"
+                                                   type="text" value="{{$house_date_to}}" onfocus="this.value = '';"
+                                                   onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
+                                                   required="">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Bedroom </label>
-                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                            <input class="form-control" disabled type="text" name="house_bedroom"
-                                                   placeholder="" required="" value="{{$house_bedroom}}">
-                                        </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Bedroom </label>
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <input class="form-control" disabled type="text" name="house_bedroom"
+                                               placeholder="" required="" value="{{$house_bedroom}}">
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Bathroom </label>
-                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                            <input class="form-control" disabled type="text" name="house_bathroom"
-                                                   placeholder="" required="" value="{{$house_bathroom}}">
-                                        </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Bathroom </label>
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <input class="form-control" disabled type="text" name="house_bathroom"
+                                               placeholder="" required="" value="{{$house_bathroom}}">
                                     </div>
+                                </div>
                                 <div class="form-group">
                                     <span class="form-label">House Booking Name</span>
                                     <input class="form-control" type="text" name="house_name" placeholder="" required=""
