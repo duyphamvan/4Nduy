@@ -110,13 +110,16 @@
                                                placeholder="" required="" value="{{$house_bathroom}}">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <span class="form-label">House Booking Name</span>
-                                    <input class="form-control" type="text" name="house_name" placeholder="" required=""
-                                           value="{{$house_name}}">
-                                </div>
-                                <div class="form-btn">
-                                    <button class="submit-btn" value="Reservation">Check availability</button>
+                                <div>
+                                    <div class="form-group">
+                                        <span class="form-label">House Booking Name</span>
+                                        <input class="form-control" type="text" name="house_name" placeholder=""
+                                               required=""
+                                               value="{{$house_name}}">
+                                    </div>
+                                    <div class="form-btn">
+                                        <button class="submit-btn" value="Reservation">Check availability</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
