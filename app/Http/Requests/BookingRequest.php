@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateCategoryRequest extends FormRequest
+class BookingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,19 +23,19 @@ class CreateCategoryRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
-            'name' => 'required|max:2',
-            'image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'phone' => 'required|max:6|numeric',
 
         ];
     }
     public function messages()
     {
-     return [
-         'name.required' => 'Bắt buộc phải có tên nhà',
-         'name.max' => 'Tên nhà bắt buộc phải có 2 kí tự',
-         'image.image'=> 'Định dạng file sai',
-         'image.mimes'=>'Định dạng file sai',
-     ];
+        return [
+            'phone.required' => 'Phải nhập số điện thoại',
+            'phone.numeric' => 'Số điện thoại phải là số',
+            'phone.max' => 'Phải có tối thiểu 6 số',
+
+        ];
     }
 }

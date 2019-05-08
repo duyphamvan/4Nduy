@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\ProfileUserRequest;
 use App\Http\Requests\UpdateUsersRequest;
@@ -117,12 +118,12 @@ class UserController extends Controller
         return redirect()->route('users.index', compact('user'));
     }
 
-    public function profiles($id)
+    public function profiles( $id)
     {
         $user = User::findOrFail($id);
         return view('admin.users.profile', compact('user'));
     }
-    public function editProfile (UpdateUsersRequest $request, $id)
+    public function editProfile (ProfileRequest $request, $id)
     {
         $user = User::findOrFail($id);
         $user->name = $request->name;

@@ -67,26 +67,20 @@
                 </div>
                 <form method="post" action="{{route('client.users.edit', $user->id)}}" enctype="multipart/form-data">
                     @csrf
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+
                     <div class="container">
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="name" required value="{{ $user->name }}">
+                                <p class="help text-danger">{{ $errors->first('name') }}</p>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-2 col-form-label" >Email</label>
                             <div class="col-sm-8">
                                 <input type="email" class="form-control" name="email" disabled value="{{ $user->email  }}">
+                                <p class="help text-danger">{{ $errors->first('email') }}</p>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -94,6 +88,8 @@
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="address" required
                                        value="{{ $user->address }}">
+                                <p class="help text-danger">{{ $errors->first('address') }}</p>
+
                             </div>
                         </div>
                         <div class="form-group row">
@@ -101,12 +97,16 @@
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="phone" required
                                        value="{{ $user->phone }}">
+                                <p class="help text-danger">{{ $errors->first('phone') }}</p>
+
                             </div>
                         </div>
                         <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">Image</label>
                             <div class="col-sm-8">
                                 <input type="file" class="form-control-file" name="image">
+                                <p class="help text-danger">{{ $errors->first('image') }}</p>
+
                             </div>
                         </div>
                     </div>

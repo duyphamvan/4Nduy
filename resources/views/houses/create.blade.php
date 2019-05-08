@@ -64,7 +64,6 @@
                         <label class="col-sm-2 col-form-label">Date From</label>
                         <div class="col-sm-10">
                             <input type="date" class="form-control" name="date_from" required>
-                            {{--<p class="help text-danger">{{ $errors->first('price') }}</p>--}}
                         </div>
                     </div>
                     <div class="form-group row">

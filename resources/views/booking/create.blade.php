@@ -67,6 +67,8 @@
                                         <span class="form-label">Phone Number</span>
                                         <input class="form-control" type="text" placeholder="Enter a phone number"
                                                name="phone" required="" value="{{ $user->phone }}">
+                                        <p class="help text-danger">{{ $errors->first('phone') }}</p>
+
                                     </div>
                                 </div>
                             </div>
