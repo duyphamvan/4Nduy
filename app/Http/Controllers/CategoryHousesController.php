@@ -26,8 +26,12 @@ class CategoryHousesController extends Controller
     }
 
     public function store(Request $request){
+        $this->validate($request, [
+            'name' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,jpg,png,gif',
+        ]);
         $category = new Category();
-        $category->name     = $request->input('name');
+        $category->name= $request->input('name');
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $path = $image->store('images', 'public');
@@ -66,11 +70,11 @@ class CategoryHousesController extends Controller
     public function destroy($id)
     {
         $category = Category::where('id',$id)->first();
-        $category->houses()->delete();
         $image = $category->image;
         if($image ){
              Storage::delete('public'.$image);
         }
+        $category->houses()->delete();
         $category->delete();
         return redirect()->route('category.index');
     }

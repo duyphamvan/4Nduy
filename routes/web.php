@@ -47,10 +47,29 @@ Route::post('/store-house','HouseController@store')->name('house.store');
 Route::get('{id}/edit-house','HouseController@edit')->name('house.edit');
 Route::post('{id}/update-house','HouseController@update')->name('house.update');
 Route::get('{id}/delete-house', 'HouseController@destroy')->name('house.delete');
+Route::get('{id}/update-status', 'HouseController@updateStatusRented')->name('house.status');
+Route::get('{id}/update-status-house', 'HouseController@updateStatusDestroy')->name('house.destroystatus');
+Route::get('{id}/show-status-house', 'HouseController@showRentalSchedule')->name('house.show');
+Route::get('{id}/show-status-house-pending', 'HouseController@showStatusPending')->name('house.show-pending');
+Route::get('total-money', 'HouseController@totalMoneyByBooking')->name('house.total');
 
 //Route comment
 Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
+
+//Route profile
+Route::get('/profile/{id}', 'ProfileController@showProfile')->name('user.show');
+Route::get('/edit/{id}', 'ProfileController@edit')->name('user.edit');
+Route::post('/update/{id}', 'ProfileController@update')->name('user.update');
+Route::get('/cancel-booking/{id}', 'ProfileController@cancelBooking')->name('user.cancel');
+
+//Route booking
+Route::post('create/booking/{id}', 'BookingController@store')->name('booking.store');
+Route::post('payment/booking/{id}', 'BookingController@payment')->name('booking.payment');
+
+//Route send email
+Route::get('/sendemail', 'SendEmailController@index')->name('send-email');
+Route::post('/sendemail/send/', 'SendEmailController@send');
 
 
 

@@ -6,6 +6,7 @@ use App\Category;
 use App\House;
 use App\Http\Requests\FormSearchRequest;
 use App\Image;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -122,8 +123,8 @@ class HomeController extends Controller
 
 
         $houses = House::where('address', 'LIKE', '%' . $address . '%')
-            ->where('date_from', '>=', $date_from)
-            ->where('date_to', '<=', $date_to)
+            ->where('date_from', '<=', $date_from)
+            ->where('date_to', '>=', $date_to)
             ->when($bathroom, function ($query) use ($bathroom) {
                 return $query->where('bathroom', $bathroom);
             })

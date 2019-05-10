@@ -10,43 +10,67 @@
                     @csrf
                     <div class="form-group">
                         <label>Name House</label>
-                        <input type="text" class="form-control" name="name"  placeholder="Enter name" required>
+                        <input type="text" class="form-control" name="name"  placeholder="Enter name">
+                        <p style="font-size: 15px; color: red;word-wrap: break-word">
+                            <strong>{{$errors->first('name')}}</strong>
+                        </p>
                     </div>
 
                     <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-control" name="address"  placeholder="Enter name" required>
+                        <input type="text" class="form-control" name="address"  placeholder="Enter name">
+                        <p style="font-size: 15px; color: red;word-wrap: break-word">
+                            <strong>{{$errors->first('address')}}</strong>
+                        </p>
                     </div>
 
                     <div class="form-group">
                         <label>Bedroom</label>
-                        <input type="text" class="form-control" name="bedroom"  placeholder="Enter name" required>
+                        <input type="text" class="form-control" name="bedroom"  placeholder="Enter name">
+                        <p style="font-size: 15px; color: red;word-wrap: break-word">
+                            <strong>{{$errors->first('bedroom')}}</strong>
+                        </p>
                     </div>
 
                     <div class="form-group">
                         <label>Bathroom</label>
-                        <input type="text" class="form-control" name="bathroom"  placeholder="Enter name" required>
+                        <input type="text" class="form-control" name="bathroom"  placeholder="Enter name" >
+                        <p style="font-size: 15px; color: red;word-wrap: break-word">
+                            <strong>{{$errors->first('bathroom')}}</strong>
+                        </p>
                     </div>
 
                     <div class="form-group">
                         <label>Image</label>
-                        <input type="file" class="form-control" name="image[]"  placeholder="Enter name" required multiple>
+                        <input type="file" class="form-control" name="image[]"  placeholder="Enter name"  multiple>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea type="text" class="form-control" name="description"  required></textarea>
+                        <textarea type="text" class="form-control" name="description"></textarea>
+                        <p style="font-size: 15px; color: red;word-wrap: break-word">
+                            <strong>{{$errors->first('description')}}</strong>
+                        </p>
                     </div>
                     <div class="form-group">
                         <label>Price</label>
-                        <input type="text" class="form-control" name="price"  required>
+                        <input type="text" class="form-control" name="price">
+                        <p style="font-size: 15px; color: red;word-wrap: break-word">
+                            <strong>{{$errors->first('price')}}</strong>
+                        </p>
                     </div>
                     <div class="form-group">
                         <label>Date From</label>
-                        <input type="date" class="form-control" name="date_from"  required>
+                        <input type="date" class="form-control" name="date_from">
+                        <p style="font-size: 15px; color: red;word-wrap: break-word">
+                            <strong>{{$errors->first('date_from')}}</strong>
+                        </p>
                     </div>
                     <div class="form-group">
                         <label>Date To</label>
-                        <input type="date" class="form-control" name="date_to"  required>
+                        <input type="date" class="form-control" name="date_to">
+                        <p style="font-size: 13px; color: red;word-wrap: break-word">
+                            <strong>{{$errors->first('date_to')}}</strong>
+                        </p>
                     </div>
 
                     <div class="form-group">

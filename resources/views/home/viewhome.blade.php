@@ -9,7 +9,7 @@
 
 {{--    <div class="container">--}}
 {{--        <div class="col-sm-12">--}}
-{{--            <a href="{{route('profile')}}">Profile</a>--}}
+{{--            <a href="{{route('profile')}}">ProfileController</a>--}}
 {{--        </div>--}}
 {{--    </div>--}}
 

@@ -1,4 +1,4 @@
-<div class="menu " style="background-color: #4c4c4c; height: 75px">
+<div class="menu " style="background-color: #fff; height: 75px;border-bottom: 2px solid #d0d0d0;">
     <div class="container">
         <div class="row icon">
             <div class="col-sm-6 iconleft pl-0">

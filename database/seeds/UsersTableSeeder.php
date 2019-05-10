@@ -20,6 +20,11 @@ class UsersTableSeeder extends Seeder
 
         $user->password = bcrypt("admin");
 
+        $user->address = '';
+        $user->phone = '';
+        $user->image = '';
+
+
         $user->role = 1;
 
         $user->save();
@@ -32,6 +37,10 @@ class UsersTableSeeder extends Seeder
         $user->email = "phamduyhvan@gmail.com";
 
         $user->password = bcrypt("11111111");
+
+        $user->address = '';
+        $user->phone = '';
+        $user->image = '';
 
         $user->role = 0;
 

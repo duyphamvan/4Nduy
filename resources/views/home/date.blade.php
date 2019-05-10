@@ -10,7 +10,7 @@
 <body>
 
 <div class="container-fluid mb-5 mt-5 bookdate">
-    <form method="get" class="bookdate needs-validation" novalidate action="{{route('search')}}"
+    <form method="get" class="bookdate needs-validation"  action="{{route('search')}}"
           enctype="multipart/form-data">
         @csrf
         <div class="form-row">

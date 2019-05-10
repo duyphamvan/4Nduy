@@ -40,4 +40,8 @@ class User extends Authenticatable
     protected $attributes = [
         'role' => 0,
     ];
+    public function bookings(){
+        return $this->hasMany('App\Booking');
+    }
+
 }

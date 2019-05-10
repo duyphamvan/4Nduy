@@ -129,9 +129,14 @@
             font-size: 35px;
             cursor: pointer;
         }
+
         button.btn.btn-secondary.comment-button {
             background-color: white;
             color: #757373;
+        }
+
+        .col-sm-6.iconleft.pl-0 ul li a i, .col-sm-6.text-right.iconright ul li a, .col-sm-6.text-right.iconright ul li a i {
+            color: #484848;
         }
 
 
@@ -160,35 +165,87 @@
                 </div>
             </div>
             <div class="col-sm-5 desc">
-                <p class="mt-5 font-weight-bold">${{$houseDetail->price}}&nbsp;<span class="small">per night</span></p>
+                <p class="mt-1 font-weight-bold">${{$houseDetail->price}}&nbsp;<span class="small">per night</span></p>
                 <div style="color: #ff7626c7; font-size: 13px;margin-top: -15px;margin-bottom: 7px;">
                     <span class="review-no float-left">{{ $houseDetail->ratings->groupBy('user_id')->count('user_id') }}&nbsp; Reviews,&nbsp;  </span>&nbsp;
                     <span class="float-left">Average: </span> {!! str_repeat('<i class="fa fa-star" aria-hidden="true"></i>', $houseDetail->averageRating ) !!}
 
                 </div>
-                <hr>
-                <h5 class="">
-                    Dates
-                </h5>
-                <div class="input-group input-daterange">
-                    <input name="date_from" placeholder="Check in" type="text" class="form-control ">
-                    <div class="input-group-addon to">--></div>
-                    <input name="date_to" placeholder="Check out" type="text" class="form-control">
-                </div>
-                <hr>
-                <h5>Gues</h5>
-                <hr>
-                <div class="col-sm-12 pl-0 pt-4">
+                <hr class="mt-0 mb-0">
+                <form method="post" enctype="multipart/form-data" action="{{route('booking.store',$houseDetail->id)}}">
+                    @csrf
+                    <h5 class="">
+                        Dates
+                    </h5>
+                    <div class="row">
+                        <div class="col-sm-5 small"><span>From: {{\Carbon\Carbon::parse($houseDetail->date_from)->format('d-m-Y')}}</span> </div>
+                        <div class="col-sm-2 text-center"><i class="fas fa-long-arrow-alt-right"></i></div>
+                        <div class="col-sm-5 small text-right"><span>To: {{\Carbon\Carbon::parse($houseDetail->date_to)->format('d-m-Y')}}</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5 pr-0">
+                            <input name="date_from" placeholder="Check in" type="date" class="form-control date "
+                                   style="font-size: 11px" >
+                            <p style="font-size: 13px; color: red;word-wrap: break-word">
+                                <strong>{{$errors->first('date_from')}}</strong>
+                            </p>
+                        </div>
 
-
-                </div>
-
-                <button class="add-to-cart d-block">Booking</button>
+                        <div class="col-sm-2 pl-0 pr-0">
+                            <div class="input-group-addon to" style="height: 43px"><i class="fas fa-long-arrow-alt-right"></i></div>
+                        </div>
+                        <div class="col-sm-5 pl-0">
+                            <input name="date_to" placeholder="Check out" type="date" class="form-control date"
+                                   style="font-size: 11px" >
+                            <input name="house_id" type="hidden" value="{{$houseDetail->id}}">
+                            <p style="font-size: 13px; color: red;word-wrap: break-word">
+                                <strong>{{$errors->first('date_to')}}</strong>
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="mt-0 mb-0">
+                    <h5>Gues</h5>
+                    <hr class="mb-0">
+                    <div class="col-sm-12 pl-0 pt-4">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Adults</label>
+                                    <select name="adults" class="form-control" id="exampleFormControlSelect1">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Childs</label>
+                                    <select name="child" class="form-control" id="exampleFormControlSelect1">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @if(auth()->check())
+                        <button type="submit" class="add-to-cart d-block">Booking</button>
+                    @else
+                        <button onclick="return confirm('You need to be logged in to perform this operation')"
+                                type="submit" class="add-to-cart d-block">Booking
+                        </button>
+                    @endif
+                </form>
                 <p class="small text-center mt-1" style="font-size: 10px">You won’t be charged yet</p>
                 <hr>
                 <div class="row">
                     <div class="col-sm-9">
-                        <p class="font-weight-bolder small mb-0">This home is on people’s minds.</p>
                         <span class="small "
                               style="font-size: 12px">It’s been viewed 500+ times in the past week.</span>
                     </div>
@@ -296,9 +353,16 @@
                                     <input id="input-1" name="rate" class="rating rating-loading" data-min="0"
                                            data-max="5"
                                            data-step="1" value="{{ $houseDetail->averageRating }}" data-size="xs">
-                                    <input type="hidden" name="id" required="" value="{{ $houseDetail->id }}">
+                                    <input type="hidden" name="id"  value="{{ $houseDetail->id }}">
                                     <br/>
-                                    <button class="btn btn-success rate mb-3" style="margin-top: -34px">Review</button>
+                                    @if(auth()->check())
+                                        <button class="btn btn-success rate mb-3" style="margin-top: -34px">Review</button>
+                                    @else
+                                        <button onclick="return confirm('You need to be logged in to perform this operation')"
+                                                class="btn btn-success rate mb-3" style="margin-top: -34px">Review
+                                        </button>
+
+                                    @endif
                                 </div>
                             </form>
                         </div>
@@ -309,9 +373,9 @@
                 <!-- /review-container -->
             </section>
             <div class="row comment mr-0 ml-0">
-                        <div class="col-sm-12 pl-0 pr-0">
-                            @include('home.replies', ['comments' => $houseDetail->comments, 'post_id' => $houseDetail->id])
-                        </div>
+                <div class="col-sm-12 pl-0 pr-0">
+                    @include('home.replies', ['comments' => $houseDetail->comments, 'post_id' => $houseDetail->id])
+                </div>
             </div>
 
             <div class="add-review">
@@ -325,13 +389,17 @@
                                 @csrf
                                 <div class="form-group">
                                     <textarea style="height:130px; word-wrap: break-word;" type="text"
-                                              name="comment_body" class="form-control" required>
+                                              name="comment_body" class="form-control">
 
                                     </textarea>
                                     <input type="hidden" name="post_id" value="{{$houseDetail->id }}"/>
                                 </div>
                                 <div class="form-group col-md-12 pl-0 add_top_20">
-                                    <input type="submit" class="btn btn-info" value="Comment"/>
+                                    @if(auth()->check())
+                                        <input type="submit" class="btn btn-info" value="Comment"/>
+                                    @else
+                                        <input onclick="return confirm('You need to be logged in to perform this operation')" type="submit" class="btn btn-info" value="Comment"/>
+                                    @endif
                                 </div>
                             </form>
 
@@ -363,5 +431,6 @@
                 $('.desc').toggleClass("booking", ($(window).scrollTop() > 1000));
             });
         });
+
     </script>
 @endsection

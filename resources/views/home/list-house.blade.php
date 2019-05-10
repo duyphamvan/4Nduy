@@ -167,26 +167,29 @@
                 <div class="hls_sol">
                     <ul>
                         @foreach($houses as $key =>$house)
-                            <a href="{{route('show',$house->id)}}" class="houselist">
-                                <li>
+                            @if($house->status == '1')
+                                <a href="{{route('show',$house->id)}}" class="houselist">
+                                    <li>
 
-                                    <img src="{{asset("storage/" . $house->images->first()['img'])}}"
-                                         class="card-img-top img-fluid"
-                                         alt="...">
-                                    <div class="hls_sol_data">
-                                        <h3>{{$house->name}}</h3>
-                                        <div class="hls_data">
-                                            <p href="#" class="hls_title">{{$house->address}}</p>
-                                            <p href="#" class="btn btn-pro">
-                                                {{$house->price}}$</p>
-                                            <div>
-                                                <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-show-caption="false" data-step="0.1" value="{{$house->averageRating }}" data-size="xs" disabled="">
+                                        <img src="{{asset("storage/" . $house->images->first()['img'])}}"
+                                             class="card-img-top img-fluid"
+                                             alt="...">
+                                        <div class="hls_sol_data">
+                                            <h3>{{$house->name}}</h3>
+                                            <div class="hls_data">
+                                                <p href="#" class="hls_title">{{$house->address}}</p>
+                                                <p href="#" class="btn btn-pro">
+                                                    {{$house->price}}$</p>
+                                                <div>
+                                                    <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-show-caption="false" data-step="0.1" value="{{$house->averageRating }}" data-size="xs" disabled="">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </li>
-                            </a>
+                                    </li>
+                                </a>
+                            @endif
+
                         @endforeach
                     </ul>
                 </div>

@@ -131,9 +131,6 @@
         @if(count($houses)==0)
             <h5 class="text-capitalize text-center mt-5">No result </h5>
         @else
-            {{--                <div class="col-sm-12">--}}
-            {{--                    <h3 class="text-center mt-2">Các điểm đến có căn hộ nổi bật</h3>--}}
-            {{--                </div>--}}
             <div class="house-detail">
                 <div class="hls_sol">
                     <ul>

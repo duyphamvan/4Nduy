@@ -10,11 +10,17 @@
                     @csrf
                     <div class="form-group">
                         <label>Name Category</label>
-                        <input type="text" class="form-control" name="name"  placeholder="Enter name" required>
+                        <input type="text" class="form-control" name="name"  placeholder="Enter name">
+                        <p style="font-size: 15px; color: red;word-wrap: break-word">
+                            <strong>{{$errors->first('name')}}</strong>
+                        </p>
                     </div>
                      <div class="form-group">
                         <label>Image</label>
-                        <input type="file" class="form-control" name="image"  required>
+                        <input type="file" class="form-control" name="image">
+                         <p style="font-size: 15px; color: red;word-wrap: break-word">
+                             <strong>{{$errors->first('image')}}</strong>
+                         </p>
                     </div>
                     <button type="submit" class="btn btn-outline-primary">Add New</button>
                     <button class="btn btn-outline-info" onclick="window.history.go(-1); return false;">Cancel</button>

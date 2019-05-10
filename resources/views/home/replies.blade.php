@@ -2,7 +2,7 @@
     <div class="display-comment" id="comment-{{$comment->id}}">
         <div class="thumbnail-image" style="width: 12%; float: left;">
             <figure class="rev-thumb">
-                <img src="{{asset('storage/images/about.jpg')}}" class="" alt=""
+                <img src="{{asset('storage/'.$comment->user->image)}}" class="" alt=""
                      style="border-radius: 50%; width: 54px; height: 50px; ">
 
             </figure>
@@ -28,9 +28,12 @@
                             <input type="hidden" name="comment_id" value="{{ $comment->id }}"/>
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-info" value="Reply"
-                                   />
-{{--                            onclick="sendReply({{$post_id}}, {{$comment->id}})"--}}
+                            @if(auth()->check())
+                                <input type="submit" class="btn btn-info" value="Reply"/>
+                            @else
+                                <input onclick="return confirm('You need to be logged in to perform this operation')" type="submit" class="btn btn-info" value="Reply"/>
+                            @endif
+                            {{--                            onclick="sendReply({{$post_id}}, {{$comment->id}})"--}}
                         </div>
                     </form>
                     <hr>

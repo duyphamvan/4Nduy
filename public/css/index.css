@@ -12,7 +12,7 @@ i.glyphicon.glyphicon-star {
     color: #ff7626c7;
 }
 .col-sm-5.desc {
-    top: 140px;
+    top: 94px;
     border: 1px solid #e4e4e4;
     height: 500px;
     position: fixed;
@@ -89,7 +89,7 @@ a.houselist {
     text-decoration: none;
     color: #124a79;
     font-size: 14px;
-    /* background-color: #44444438; */
+
 }
 
 .card.house img.card-img-top.img-fluid {
@@ -103,7 +103,7 @@ img.card-img-top.img-fluid {}
 }
 
 .col-sm-6.text-right.iconright ul li a span {
-    color: #f3f4f5;
+    color: #5294ee;
     font-size: 16px;
 }
 

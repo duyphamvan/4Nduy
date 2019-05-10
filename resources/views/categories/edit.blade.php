@@ -10,12 +10,18 @@
                     @csrf
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" name="name" value="{{ $category->name }}" required>
+                        <input type="text" class="form-control" name="name" value="{{ $category->name }}">
+                        <p style="font-size: 15px; color: red;word-wrap: break-word">
+                            <strong>{{$errors->first('name')}}</strong>
+                        </p>
                     </div>
 
                     <div class="form-group">
                         <label>Image</label>
                         <input type="file" class="form-control mb-2" name="image" value="{{ $category->image }}">
+                        <p style="font-size: 15px; color: red;word-wrap: break-word">
+                            <strong>{{$errors->first('image')}}</strong>
+                        </p>
                         <img src="{{asset("storage/$category->image")}}" alt="" width="200px" height="150px">
                     </div>
                     <button type="submit" class="btn btn-primary">Edit</button>
